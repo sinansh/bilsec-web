@@ -2,7 +2,7 @@
 
 Tüm içerik Markdown ile yazılır. Dosyanın başındaki `---` arasındaki bölüme (front matter) sayfa bilgileri yazılır, altına metin gelir. Hazır örnekler:
 
-- Yazı: `_posts/2026-09-12-geri-donus-testi.md`
+- Yazı: `_posts/2026-10-10-geri-donus-testi.md`
 - Kontrol alanı: `_rehber/yedekleme.md`
 - Terim: `_sozluk/degistirilemez-yedek.md`
 - Soru: `_sss/siber-hijyen-kobi-belgesi-zorunlu-mu.md`
@@ -42,6 +42,14 @@ Okuma süresi kendiliğinden hesaplanır. Elle vermek için `okuma: 8` yazın.
 - `alan: 7` alanın numarasıdır. Başlık, komşu alanlar ve önceki/sonraki bağlantılar `_data/kontrol_alanlari.yml` dosyasından gelir.
 - `maddeler:` listesindeki her madde için şunlar yazılır: `no`, `seviye` (Başlangıç / Orta / İleri), `baslik`, `ne_isteniyor`, `kanitlar`, `politika`, `uygulama`, `guncellik` ve isteğe bağlı `bilsec`. Kontrol kartları ve kanıt özeti tablosu bu listeden üretilir. Metinde yerlerini şu satırlar belirler:
   `{% include kontrol-maddeleri.html %}` ve `{% include kanit-ozeti.html %}`
+- **`no` alanı mutlaka tırnak içinde yazılır.** Tırnaksız `no:` YAML'da "hayır" (`false`) olarak okunur; madde numarası sitede boş görünür, hata da vermez. Değer de tırnaklı yazılır, yoksa `7.10` sayı sayılıp `7.1` olur:
+  ```yaml
+  maddeler:
+    - "no": "7.1"        # doğru
+      seviye: Orta
+    - no: 7.1            # YANLIŞ: numara boş görünür
+  ```
+  Aynı kural `_data/kontrol_alanlari.yml` dosyası için de geçerlidir: `{ "no": 7, kod: "07", … }`.
 - Bir alanın sayfası yazıldığında rehberdeki tabloda o alan kendiliğinden bağlantıya dönüşür.
 
 ## Sözlük terimi (`_sozluk/`)
