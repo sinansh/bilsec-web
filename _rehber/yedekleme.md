@@ -13,7 +13,7 @@ kisa_yanit_kaynak: "Kaynak: SSB Siber Hijyen-KOBİ Denetim Kriterleri, madde 7.1
 
 # Kontrol kartları ve kanıt özeti tablosu bu listeden üretilir.
 maddeler:
-  - no: "7.1"
+  - "no": "7.1"
     seviye: Orta
     baslik: Kritik veri içeren sistemler harici bir altyapıda yedeklenmelidir.
     ne_isteniyor: Hangi sistemlerde kritik veri bulunduğu belirlenir; bu sistemlerin yedeği aynı sunucu ya da aynı disk üzerinde değil, ayrı bir altyapıda alınır.
@@ -25,7 +25,7 @@ maddeler:
     uygulama: Yedek hedefi ayarı, yedek kayıtları
     guncellik: Son 30 gün
     bilsec: Katman 2
-  - no: "7.2"
+  - "no": "7.2"
     seviye: Orta
     baslik: Yedekler, harici bir altyapıda güvenli bir şekilde tutulmalıdır.
     ne_isteniyor: Yedeğin bulunduğu yere erişim sınırlıdır, yedek şifrelidir ve fidye yazılımı asıl sistemi ele geçirse bile yedeğe ulaşamaz.
@@ -37,7 +37,7 @@ maddeler:
     uygulama: Yetki, şifreleme ve saklama ayarı
     guncellik: Denetim tarihinde
     bilsec: Katman 2
-  - no: "7.3"
+  - "no": "7.3"
     seviye: Orta
     baslik: Önemli veriler, belirli aralıklarla yedeklenmeli ve yedekten geri dönme (restore) testleri düzenli olarak yapılmalıdır.
     ne_isteniyor: Yedekleme sıklığı yazılı olarak belirlenir; yedekten geri yükleme düzenli denenir ve sonucu kayda geçer.

@@ -2,6 +2,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{% if page.url == "/" %}{{ site.title }} · {{ site.tagline }}{% else %}{{ page.baslik_etiketi | default: page.title }} · {{ site.title }}{% endif %}</title>
 {% seo title=false %}
+{%- assign _ak = page.anahtar_kelimeler | default: site.anahtar_kelimeler -%}{% if _ak %}
+<meta name="keywords" content="{{ _ak | join: ', ' | escape }}">{% endif %}
 {% feed_meta %}
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">

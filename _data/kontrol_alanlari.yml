@@ -1,16 +1,17 @@
 # SSB Tedarik Zinciri Siber Hijyen-KOBİ Denetim Kriterleri · 13 alan, 52 madde
 # Rehber tablosu, alan sayfalarındaki komşu alanlar ve önceki/sonraki gezinme buradan üretilir.
 # Bir alanın sayfası _rehber/ klasöründe `alan: <no>` ile yazıldığında bağlantı kendiliğinden açılır.
-- { no: 1,  kod: "01", ad: Varlık yönetimi,               toplam: 6, baslangic: 1, orta: 1, ileri: 4 }
-- { no: 2,  kod: "02", ad: Ağ ve sistem güvenliği,        toplam: 9, baslangic: 5, orta: 2, ileri: 2 }
-- { no: 3,  kod: "03", ad: Uç nokta (istemci) güvenliği,  toplam: 9, baslangic: 4, orta: 2, ileri: 3 }
-- { no: 4,  kod: "04", ad: E-posta güvenliği,             toplam: 4, baslangic: 2, orta: 2, ileri: 0 }
-- { no: 5,  kod: "05", ad: Fiziksel ve çevresel güvenlik, toplam: 4, baslangic: 1, orta: 0, ileri: 3 }
-- { no: 6,  kod: "06", ad: Veri güvenliği,                toplam: 5, baslangic: 2, orta: 0, ileri: 3 }
-- { no: 7,  kod: "07", ad: Yedekleme,                     toplam: 3, baslangic: 0, orta: 3, ileri: 0 }
-- { no: 8,  kod: "08", ad: Farkındalık,                   toplam: 2, baslangic: 0, orta: 1, ileri: 1 }
-- { no: 9,  kod: "09", ad: Güncelleme yönetimi,           toplam: 4, baslangic: 3, orta: 0, ileri: 1 }
-- { no: 10, kod: "10", ad: Olay ihlal yönetimi,           toplam: 1, baslangic: 1, orta: 0, ileri: 0 }
-- { no: 11, kod: "11", ad: Bulut güvenliği,               toplam: 1, baslangic: 0, orta: 0, ileri: 1 }
-- { no: 12, kod: "12", ad: Veri imha yönetimi,            toplam: 2, baslangic: 2, orta: 0, ileri: 0 }
-- { no: 13, kod: "13", ad: İnsan kaynakları güvenliği,    toplam: 2, baslangic: 2, orta: 0, ileri: 0 }
+# Not: "no" anahtarı tırnak içinde kalmalı; tırnaksız `no:` YAML'da false (boolean) okunur.
+- { "no": 1,  kod: "01", ad: Varlık yönetimi,               toplam: 6, baslangic: 1, orta: 1, ileri: 4 }
+- { "no": 2,  kod: "02", ad: Ağ ve sistem güvenliği,        toplam: 9, baslangic: 5, orta: 2, ileri: 2 }
+- { "no": 3,  kod: "03", ad: Uç nokta (istemci) güvenliği,  toplam: 9, baslangic: 4, orta: 2, ileri: 3 }
+- { "no": 4,  kod: "04", ad: E-posta güvenliği,             toplam: 4, baslangic: 2, orta: 2, ileri: 0 }
+- { "no": 5,  kod: "05", ad: Fiziksel ve çevresel güvenlik, toplam: 4, baslangic: 1, orta: 0, ileri: 3 }
+- { "no": 6,  kod: "06", ad: Veri güvenliği,                toplam: 5, baslangic: 2, orta: 0, ileri: 3 }
+- { "no": 7,  kod: "07", ad: Yedekleme,                     toplam: 3, baslangic: 0, orta: 3, ileri: 0 }
+- { "no": 8,  kod: "08", ad: Farkındalık,                   toplam: 2, baslangic: 0, orta: 1, ileri: 1 }
+- { "no": 9,  kod: "09", ad: Güncelleme yönetimi,           toplam: 4, baslangic: 3, orta: 0, ileri: 1 }
+- { "no": 10, kod: "10", ad: Olay ihlal yönetimi,           toplam: 1, baslangic: 1, orta: 0, ileri: 0 }
+- { "no": 11, kod: "11", ad: Bulut güvenliği,               toplam: 1, baslangic: 0, orta: 0, ileri: 1 }
+- { "no": 12, kod: "12", ad: Veri imha yönetimi,            toplam: 2, baslangic: 2, orta: 0, ileri: 0 }
+- { "no": 13, kod: "13", ad: İnsan kaynakları güvenliği,    toplam: 2, baslangic: 2, orta: 0, ileri: 0 }

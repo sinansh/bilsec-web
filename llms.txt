@@ -1,0 +1,51 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+arama: false
+---
+{%- comment -%}
+Yapay zekâ asistanları için site özeti (https://llmstxt.org). Jekyll derlerken üretilir;
+rehber, SSS, sözlük ve blog listeleri koleksiyonlardan kendiliğinden gelir.
+{%- endcomment -%}
+# {{ site.title }}
+
+> {{ site.description }}
+
+- {{ site.title }}, savunma sanayii tedarik zincirindeki ve BT ekibi olmayan 10–100 çalışanlı firmalara yönelik bir yönetilen BT ve siber güvenlik hizmetidir. {{ site.iletisim.adres.satir1 }}, {{ site.iletisim.adres.satir2 }} merkezlidir.
+- Odak noktası Savunma Sanayii Başkanlığı (SSB) koordinasyonundaki **Siber Hijyen-KOBİ** belgelendirme programına hazırlıktır.
+- TRTEST, adları benzeyen iki ayrı program yürütür: Siber Hijyen-KOBİ ve daha kapsamlı olan Siber Hijyen Belgelendirme Programı. {{ site.title }} yalnızca Siber Hijyen-KOBİ ile ilgilenir.
+- Denetimi ve belgelendirmeyi TRTEST Test ve Değerlendirme A.Ş. yapar. {{ site.title }} belge vermez; firmaların kontrolleri uygulamasını ve kanıtlarını hazır tutmasını sağlar.
+- Siber Hijyen-KOBİ 13 kontrol alanında {% assign _top = 0 %}{% for _a in site.data.kontrol_alanlari %}{% assign _top = _top | plus: _a.toplam %}{% endfor %}{{ _top }} maddeden oluşur; firmalar Başlangıç, Orta ya da İleri seviyede denetlenir.
+- İletişim: {{ site.iletisim.eposta }} · Görüşme: {{ site.iletisim.takvim_url }}
+
+## Ana sayfalar
+
+- [Siber Hijyen-KOBİ rehberi]({{ '/rehber/' | absolute_url }}): Program nedir, kimleri kapsar, 13 kontrol alanı, seviyeler, belgelendirme süreci ve istenen kanıtlar.
+- [Siber Hijyen-KOBİ belgesine hazırlık]({{ '/cozumler/siber-hijyen-kobi/' | absolute_url }}): Denetime hazırlanan ve denetimden kalan firmalar için yaklaşım.
+- [BilSec Platformu]({{ '/urun/' | absolute_url }}): BT ve dizin yönetimi, güvenlik izleme ve yedekleme, yönetilen operasyon ve uyum.
+- [BT ve dizin yönetimi]({{ '/urun/bt-yonetimi/' | absolute_url }}): Kullanıcı hesapları, yetkiler, parola kuralları ve bilgisayar ayarlarının yönetimi.
+- [Hakkımızda]({{ '/hakkimizda/' | absolute_url }}): Ekip, yöntem ve kurum bilgileri.
+- [İletişim]({{ '/iletisim/' | absolute_url }}): İletişim formu, görüşme takvimi ve e-posta.
+
+## Siber Hijyen-KOBİ kontrol alanları
+
+{% for _a in site.data.kontrol_alanlari %}{% assign _s = site.rehber | where: "alan", _a.no | first %}- {% if _s %}[{{ _a.kod }} · {{ _a.ad }}]({{ _s.url | absolute_url }}){% else %}{{ _a.kod }} · {{ _a.ad }}{% endif %}: {{ _a.toplam }} madde (Başlangıç {{ _a.baslangic }}, Orta {{ _a.orta }}, İleri {{ _a.ileri }}){% if _s %}. {{ _s.ozet }}{% endif %}
+{% endfor %}
+## Sık sorulan sorular
+
+{% assign _sq = site.sss | sort: "title" %}{% assign _kok = "](" | append: site.url | append: "/" %}{% for _q in _sq %}- [{{ _q.title }}]({{ _q.url | absolute_url }}): {{ _q.kisa_yanit | replace: "](/", _kok }}
+{% endfor %}
+## Sözlük
+
+{% assign _tr = site.sozluk | sort: "title" %}{% for _t in _tr %}- [{{ _t.title }}]({{ _t.url | absolute_url }}): {{ _t.kisa_tanim }}
+{% endfor %}
+## Blog
+
+{% for _y in site.posts %}- [{{ _y.title }}]({{ _y.url | absolute_url }}): {{ _y.description }}
+{% endfor %}
+## Optional
+
+- [KVKK aydınlatma metni]({{ '/kvkk/' | absolute_url }})
+- [Site haritası]({{ '/sitemap.xml' | absolute_url }})
+- [Blog RSS]({{ '/blog/feed.xml' | absolute_url }})

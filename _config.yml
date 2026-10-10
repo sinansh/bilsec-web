@@ -22,7 +22,12 @@ kurum:
   mersis: ""  # MERSİS numarası · boş bırakılırsa künyede gösterilmez
   kulucka:  # boş bırakılırsa künyede gösterilmez
   veri_konumu: Türkiye
+  # Arama motorları ve yapay zekâ asistanları için kurumun uzmanlık alanları (schema.org knowsAbout)
+  uzmanlik: [Siber Hijyen-KOBİ, siber hijyen, Siber Hijyen-KOBİ denetim hazırlığı, savunma sanayii tedarik zinciri siber güvenliği, yönetilen BT hizmetleri, siber güvenlik izleme, değiştirilemez yedekleme]
   logo: /assets/img/logo.svg
+
+# Sayfada `anahtar_kelimeler:` yoksa kullanılan varsayılan liste (meta keywords)
+anahtar_kelimeler: [Siber Hijyen-KOBİ, siber hijyen, SSB, Savunma Sanayii Başkanlığı, TRTEST, savunma sanayii tedarikçileri, yönetilen BT, KOBİ siber güvenlik]
 
 # ── İletişim (sitedeki tüm telefon, e-posta, adres buradan gelir) ──
 iletisim:

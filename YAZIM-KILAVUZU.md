@@ -5,7 +5,7 @@ Tüm içerik Markdown ile yazılır. Dosyanın başındaki `---` arasındaki bö
 - Yazı: `_posts/2026-09-12-geri-donus-testi.md`
 - Kontrol alanı: `_rehber/yedekleme.md`
 - Terim: `_sozluk/degistirilemez-yedek.md`
-- Soru: `_sss/siber-hijyen-belgesi-zorunlu-mu.md`
+- Soru: `_sss/siber-hijyen-kobi-belgesi-zorunlu-mu.md`
 
 Yeni içerik açarken en kolay yol en yakın örneği kopyalamaktır.
 

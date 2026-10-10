@@ -1,5 +1,5 @@
 ---
-title: "Siber hijyen belgesi zorunlu mu?"
+title: "Siber Hijyen-KOBİ belgesi zorunlu mu?"
 description: "Siber Hijyen-KOBİ belgesinin zorunluluğu neye bağlıdır, firmanızın kapsamda olup olmadığını nasıl anlarsınız? Kısa yanıt ve ayrıntı."
 konu: hijyen
 sira: 10
@@ -21,7 +21,7 @@ kaynaklar:
 
 SSS'de programa katılımın "muhakkak beklendiği" belirtiliyor. Başvuru süreci, ana yüklenicinin firmanızı TRTEST'e bildirmesiyle başlar; bildirilen firmalara sistemden kullanıcı aktivasyon e-postası gönderilir. Firma ölçeğinden bağımsız olarak, bildirildiyseniz başvurmanız gerekir.
 
-TRTEST'in daha kapsamlı Siber Hijyen Belgelendirme Programı kapsamında geçerli sertifikası olan firmaların ayrıca başvurması gerekmez; sertifikayı ana yükleniciyle paylaşmak yeterlidir.
+TRTEST'in ayrı ve daha kapsamlı Siber Hijyen Belgelendirme Programı kapsamında geçerli sertifikası olan firmaların ayrıca başvurması gerekmez; sertifikayı ana yükleniciyle paylaşmak yeterlidir.
 
 ### Kapsamda olup olmadığınızı nasıl anlarsınız
 

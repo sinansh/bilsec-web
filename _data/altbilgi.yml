@@ -13,7 +13,7 @@
     # - { ad: Güvenlik olayı desteği, url: "/iletisim/#durum" }
 - baslik: Kaynaklar
   baglantilar:
-    - { ad: Siber hijyen rehberi, url: /rehber/ }
+    - { ad: Siber Hijyen-KOBİ rehberi, url: /rehber/ }
     - { ad: 13 kontrol alanı, url: "/rehber/#alanlar" }
     - { ad: Blog, url: /blog/ }
     - { ad: SSS, url: /sss/ }
