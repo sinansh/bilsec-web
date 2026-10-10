@@ -1,0 +1,8 @@
+{%- comment -%} Rehber sayfası: 13 alan tablosunun satırları (_data/kontrol_alanlari.yml) {%- endcomment -%}
+{%- assign _tt = 0 -%}{%- assign _tb = 0 -%}{%- assign _to = 0 -%}{%- assign _ti = 0 -%}
+{%- for _a in site.data.kontrol_alanlari -%}
+{%- assign _d = site.rehber | where: "alan", _a.no | first -%}
+{%- assign _tt = _tt | plus: _a.toplam -%}{%- assign _tb = _tb | plus: _a.baslangic -%}{%- assign _to = _to | plus: _a.orta -%}{%- assign _ti = _ti | plus: _a.ileri -%}
+<tr><th scope="row">{% if _d %}<a href="{{ _d.url | relative_url }}">{{ _a.kod }} {{ _a.ad }}</a>{% else %}{{ _a.kod }} {{ _a.ad }}{% endif %}</th><td class="mono">{{ _a.toplam }}</td><td class="mono">{% if _a.baslangic > 0 %}{{ _a.baslangic }}{% else %}—{% endif %}</td><td class="mono">{% if _a.orta > 0 %}{{ _a.orta }}{% else %}—{% endif %}</td><td class="mono">{% if _a.ileri > 0 %}{{ _a.ileri }}{% else %}—{% endif %}</td></tr>
+{%- endfor -%}
+<tr><th scope="row">Toplam</th><td class="mono"><strong>{{ _tt }}</strong></td><td class="mono"><strong>{{ _tb }}</strong></td><td class="mono"><strong>{{ _to }}</strong></td><td class="mono"><strong>{{ _ti }}</strong></td></tr>

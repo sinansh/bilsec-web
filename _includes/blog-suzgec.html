@@ -1,0 +1,8 @@
+{%- comment -%} Blog kategori ve etiket süzgeci. aktif = kategori adı (boşsa "Tümü") {%- endcomment -%}
+<nav aria-labelledby="flt-k" style="display:flex;flex-direction:column;gap:14px;padding:18px 0;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default)">
+<div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:10px"><p class="kicker kicker--muted" id="flt-k">Kategori</p>
+<ul class="taglist" style="gap:8px"><li><a class="chip" href="{{ '/blog/' | relative_url }}"{% unless include.aktif %} aria-current="page"{% endunless %}>Tümü <span class="chip__n">{{ site.posts.size }}</span></a></li>{% for _k in site.data.blog_kategorileri %}{% assign _n = site.posts | where: "kategori", _k.ad | size %}{% if _n > 0 %}<li><a class="chip" href="{{ _k.url | relative_url }}"{% if include.aktif == _k.ad %} aria-current="page"{% endif %}>{{ _k.ad }} <span class="chip__n">{{ _n }}</span></a></li>{% endif %}{% endfor %}</ul></div>
+{% if site.tags.size > 0 %}{% assign _et = site.tags | sort %}<details class="pop"><summary class="chip">Etikete göre süz <span aria-hidden="true" class="mono">+</span></summary><div class="pop__panel" style="left:auto;right:0"><p class="kicker kicker--muted" style="margin-bottom:12px">Etiketler</p><ul class="taglist">{% for _t in _et %}<li><a class="tag" href="{{ '/blog/etiketler/' | relative_url }}#{{ _t[0] | slugify: 'latin' }}">#{{ _t[0] }}</a></li>{% endfor %}</ul></div></details>{% endif %}
+</div>
+</nav>

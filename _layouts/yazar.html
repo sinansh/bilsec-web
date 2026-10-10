@@ -1,0 +1,35 @@
+---
+layout: varsayilan
+---
+{%- assign _bos = "" | split: "" -%}
+{%- assign _yazilar = site.posts | where: "yazar", page.slug -%}
+{%- assign _rh = site.rehber | where: "yazar", page.slug -%}
+{%- assign _rs = site.pages | where: "yazar", page.slug -%}
+{%- assign _gg = site.rehber | concat: site.pages | concat: site.posts | where: "gozden_geciren", page.slug -%}
+{%- assign _sq = site.sss | where: "yazar", page.slug -%}
+{%- assign _say = _yazilar.size | plus: _rh.size | plus: _rs.size | plus: _gg.size | plus: _sq.size -%}
+<header class="wrap phead"><div style="display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;align-items:start" data-grid="person">
+<div class="author__ph" style="width:200px">{% if page.portre %}<img src="{{ page.portre | relative_url }}" alt="{{ page.title }}" width="200" height="250">{% endif %}</div>
+<div class="phead__in">
+<p class="kicker">Yazar · Ekip</p>
+<h1 class="h1 h1--md">{{ page.title }}</h1>
+<p class="author__role" style="font-size:15px">{{ page.rol }} · {{ site.kurum.unvan }}</p>
+{% if page.ozet %}<p class="lead" style="font-size:17px">{{ page.ozet }}</p>{% endif %}
+{% if page.sertifikalar %}<div class="stack" style="gap:10px"><p class="kicker kicker--muted">Sertifikalar</p><ul class="taglist">{% for _s in page.sertifikalar %}<li><span class="tag tag--teal">{{ _s }}</span></li>{% endfor %}</ul></div>{% endif %}
+{% if page.profiller %}<div class="row" style="gap:8px">{% for _p in page.profiller %}<a class="chip" href="{{ _p.url }}" rel="me external">{% if _p.ikon %}{% include ikon.html ad=_p.ikon %}{% endif %}{{ _p.ad }}</a>{% endfor %}</div>{% endif %}
+</div>
+</div></header>
+{% assign _ic = content | strip %}{% if _ic != "" %}<div class="wrap" style="padding-bottom:56px"><div class="prose read">{{ content }}</div></div>{% endif %}
+{% if _say > 0 %}<section class="sec sec--card" aria-labelledby="h-yazi">
+<div class="wrap">
+<div class="sec__head"><h2 class="h-sec" id="h-yazi">Yazıları ve gözden geçirdikleri</h2></div>
+<ul class="lines" style="max-width:860px">
+{% for _d in _yazilar %}<li><a class="post" href="{{ _d.url | relative_url }}" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><h3 style="font-size:18px;flex:1 1 380px">{{ _d.title }}</h3><ul class="meta"><li>Blog</li><li>{{ _d.date | date: '%d.%m.%Y' }}</li></ul></a></li>{% endfor %}
+{% for _d in _rh %}{% assign _ak = site.data.kontrol_alanlari | where: "no", _d.alan | first %}<li><a class="post" href="{{ _d.url | relative_url }}" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><h3 style="font-size:18px;flex:1 1 380px">Kontrol alanı {{ _ak.kod }}: {{ _d.title }}</h3><ul class="meta"><li>Rehber</li>{% if _d.guncelleme %}<li>{{ _d.guncelleme | date: '%d.%m.%Y' }}</li>{% endif %}</ul></a></li>{% endfor %}
+{% for _d in _rs %}<li><a class="post" href="{{ _d.url | relative_url }}" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><h3 style="font-size:18px;flex:1 1 380px">{{ _d.title }}</h3><ul class="meta"><li>Rehber</li>{% if _d.guncelleme %}<li>{{ _d.guncelleme | date: '%d.%m.%Y' }}</li>{% endif %}</ul></a></li>{% endfor %}
+{% for _d in _gg %}<li><a class="post" href="{{ _d.url | relative_url }}" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><h3 style="font-size:18px;flex:1 1 380px">{{ _d.title }}</h3><ul class="meta"><li>Gözden geçiren</li>{% if _d.guncelleme %}<li>{{ _d.guncelleme | date: '%d.%m.%Y' }}</li>{% endif %}</ul></a></li>{% endfor %}
+{% for _d in _sq %}<li><a class="post" href="{{ _d.url | relative_url }}" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><h3 style="font-size:18px;flex:1 1 380px">{{ _d.title }}</h3><ul class="meta"><li>SSS</li>{% if _d.guncelleme %}<li>{{ _d.guncelleme | date: '%d.%m.%Y' }}</li>{% endif %}</ul></a></li>{% endfor %}
+</ul>
+</div>
+</section>{% endif %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":{{ page.title | jsonify }},"jobTitle":{{ page.rol | jsonify }},"worksFor":{"@type":"Organization","name":{{ site.kurum.unvan | jsonify }}}{% if page.portre %},"image":{{ page.portre | absolute_url | jsonify }}{% endif %},"hasCredential":{{ page.sertifikalar | jsonify }},"sameAs":{{ page.profiller | map: "url" | jsonify }},"url":{{ page.url | absolute_url | jsonify }}}}</script>

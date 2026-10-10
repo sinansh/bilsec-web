@@ -1,0 +1,55 @@
+---
+title: "Hakkımızda"
+description: "BilSec kimdir, nasıl çalışır, ekipte kimler var? Kurum bilgileri, yöntemimiz ve ilkelerimiz."
+permalink: "/hakkimizda/"
+cta: "kurum"
+kirinti: []
+---
+<header class="wrap phead"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+<div class="phead__in">
+<p class="kicker">Hakkımızda</p>
+<h1 class="h1 h1--md">Bir firmanın kuramayacağı BT ve güvenlik departmanını ürün hâline getiriyoruz</h1>
+<p class="lead">BilSec, Ankara'da kurulmuş bir siber güvenlik ve bilişim teknolojileri girişimidir. Savunma sanayii tedarik zincirindeki ve kritik altyapı sektöründeki 10–100 kişilik firmalar için çalışıyoruz.</p>
+</div>
+<div style="display:flex;justify-content:center">{% include kontur.html boyut=280 %}</div>
+</div></header>
+
+<section class="sec sec--card" aria-labelledby="h-neden">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px">
+<div class="stack"><p class="kicker">Neden varız</p><h2 class="h-sec" id="h-neden">Beklenti artıyor, ekip yok</h2></div>
+<div class="prose"><p>Savunma sanayiinde tedarikçilerden siber hijyen belgesi bekleniyor; kritik altyapı kapsamına alınan sektörler genişliyor. Ama 10–100 kişilik bir firmanın tam zamanlı BT ve güvenlik ekibi kurması çoğu zaman mümkün değil.</p><p>Bileşenleri biz icat etmiyoruz. İddiamız, BT yönetimini, güvenlik izlemeyi ve uyum kanıtını tek bir platformda, BT bilgisi olmayan birinin yönetebileceği biçimde birleştirmek.</p></div>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="h-yontem">
+<div class="wrap">
+<div class="sec__head"><p class="kicker">Yöntem</p><h2 class="h-sec" id="h-yontem">Nasıl çalışıyoruz</h2></div>
+<div class="grid grid--3">
+<div class="card"><span class="card__n">01</span><h3>Önce bilmek</h3><p>Korumaya başlamadan önce neyin korunacağını çıkarırız: hesaplar, bilgisayarlar, veriler. Sloganımız buradan gelir.</p></div>
+<div class="card"><span class="card__n">02</span><h3>Kanıtla çalışmak</h3><p>Yapılan her işin tarihli bir kaydı olur. "Yaptık" demek yerine göstermeyi tercih ederiz.</p></div>
+<div class="card"><span class="card__n">03</span><h3>Resmi kaynağa dayanmak</h3><p>Rehberlerimizde mevzuat ve kriterler için yalnız resmi kaynaklara atıf yaparız; yorumumuzu ayrıca belirtiriz.</p></div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--card" id="ekip" aria-labelledby="h-ekip">
+<div class="wrap">
+<div class="sec__head"><p class="kicker">Ekip</p><h2 class="h-sec" id="h-ekip">Ekip ve yazarlar</h2><p class="lead">Rehber ve blog yazılarımızı bu ekip yazar ve gözden geçirir.</p></div>
+<div class="grid grid--2" style="gap:24px">
+{% assign _ekip = site.yazarlar | sort: "sira" %}{% for _e in _ekip %}{% include yazar-karti.html yazar=_e.slug %}{% endfor %}
+</div>
+</div>
+</section>
+
+<section class="sec" id="kurum" aria-labelledby="h-kurum">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
+<div class="stack"><p class="kicker">Kurum bilgileri</p><h2 class="h-sec" id="h-kurum">Künye</h2><p class="muted">Kuluçka ve hızlandırma programı bilgileri program onayıyla birlikte burada yayımlanır.</p></div>
+<dl class="facts" style="grid-template-columns:1fr">
+<div><dt>Unvan</dt><dd>{{ site.kurum.unvan }}</dd></div>
+<div><dt>Adres</dt><dd style="font-weight:400">{{ site.iletisim.adres.satir1 }}, {{ site.iletisim.adres.satir2 }}</dd></div>
+{% if site.kurum.mersis and site.kurum.mersis != "" %}<div><dt>Mersis no</dt><dd class="mono" style="font-weight:400">{{ site.kurum.mersis }}</dd></div>{% endif %}
+{% if site.kurum.kulucka %}<div><dt>Kuluçka / hızlandırma</dt><dd style="font-weight:400">{{ site.kurum.kulucka }}</dd></div>{% endif %}
+<div><dt>Veri konumu</dt><dd style="font-weight:400">{{ site.kurum.veri_konumu }}</dd></div>
+</dl>
+</div>
+</section>

@@ -1,0 +1,27 @@
+---
+layout: varsayilan
+---
+{%- assign _kn = site.data.sss_konulari | where: "id", page.konu | first -%}
+<div class="wrap" style="padding-bottom:72px">
+<article class="read">
+<header class="phead"><div class="phead__in">
+<p class="kicker">Soru{% if _kn %} · {{ _kn.ad }}{% endif %}</p>
+<h1 class="h1 h1--md">{{ page.title }}</h1>
+<ul class="meta">{% if page.yazar %}<li>Yanıtlayan {% include yazar-adi.html yazar=page.yazar %}</li>{% endif %}{% if page.guncelleme %}<li><strong>Son güncelleme <time datetime="{{ page.guncelleme | date: '%Y-%m-%d' }}">{{ page.guncelleme | date: '%d.%m.%Y' }}</time></strong></li>{% endif %}</ul>
+</div></header>
+<div class="prose">
+{% include kisa-yanit.html metin=page.kisa_yanit kaynak=page.kisa_yanit_kaynak %}
+{% include icerik.html %}
+{% if page.kaynaklar %}<h2 id="kaynaklar">Kaynaklar</h2>
+{% include kaynaklar.html %}{% endif %}
+</div>
+{%- assign _il = "" | split: "" -%}
+{%- if page.ilgili -%}{%- for _s in page.ilgili -%}{%- assign _q = site.sss | where: "slug", _s | first -%}{%- if _q -%}{%- assign _il = _il | push: _q -%}{%- endif -%}{%- endfor -%}
+{%- else -%}{%- assign _ayni = site.sss | where: "konu", page.konu | sort: "sira" -%}{%- for _q in _ayni -%}{%- if _q.url != page.url and _il.size < 4 -%}{%- assign _il = _il | push: _q -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+{% if _il.size > 0 %}<section aria-labelledby="h-ilgili" style="margin-top:56px"><h2 class="h-sec" id="h-ilgili" style="font-size:24px;margin-bottom:12px">İlgili sorular</h2>
+<ul class="lines">{% for _q in _il %}<li><a class="tlink" href="{{ _q.url | relative_url }}" style="min-height:0">{{ _q.title }}</a></li>{% endfor %}</ul>
+</section>{% endif %}
+<p style="margin-top:32px"><a class="tlink" href="{{ '/sss/' | relative_url }}">Tüm sorulara dönün</a></p>
+</article>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":{{ page.title | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ page.kisa_yanit | markdownify | strip_html | strip | jsonify }}}}]}</script>

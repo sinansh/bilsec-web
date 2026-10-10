@@ -1,0 +1,8 @@
+{%- assign _c = site.data.cta[page.cta] -%}
+{%- if _c -%}
+{%- assign _u1 = _c.birincil.url -%}{%- unless _u1 contains ":" -%}{%- assign _u1 = _u1 | relative_url -%}{%- endunless -%}
+{%- capture _cta -%}
+<section class="cta" aria-labelledby="cta-t"><div class="wrap cta__in"><div class="stack"><span class="rule-amber" aria-hidden="true"></span><h2 class="cta__t" id="cta-t">{{ _c.baslik }}</h2><p class="lead">{{ _c.metin }}</p></div><div class="cta__acts"><a class="btn btn--primary btn--lg" href="{{ _u1 }}">{{ _c.birincil.ad }}</a>{% if _c.ikincil %}{% assign _u2 = _c.ikincil.url %}{% unless _u2 contains ":" %}{% assign _u2 = _u2 | relative_url %}{% endunless %}<a class="btn btn--outline" href="{{ _u2 }}">{{ _c.ikincil.ad }}</a>{% endif %}{% if _c.not %}<p class="cta__note">{{ _c.not }}</p>{% endif %}</div></div></section>
+{%- endcapture -%}
+{{ _cta | replace: "[kvkk_eposta]", site.iletisim.kvkk_eposta | replace: "[eposta]", site.iletisim.eposta }}
+{%- endif -%}

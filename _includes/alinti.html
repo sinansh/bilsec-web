@@ -1,0 +1,2 @@
+{%- comment -%} {% include alinti.html metin="…" kaynak="Sinan Şahin, BilSec" %} {%- endcomment -%}
+<blockquote>{{ include.metin | markdownify }}{% if include.kaynak %}<footer>{{ include.kaynak }}</footer>{% endif %}</blockquote>

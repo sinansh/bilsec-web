@@ -1,0 +1,8 @@
+<footer class="ftr"><div class="wrap ftr__top">
+<div class="ftr__org">{% include logo.html %}<address><strong>{{ site.kurum.unvan }}</strong>{{ site.iletisim.adres.satir1 }}<br>{{ site.iletisim.adres.satir2 }}<br><a href="mailto:{{ site.iletisim.eposta }}">{{ site.iletisim.eposta }}</a>{% if site.iletisim.telefon and site.iletisim.telefon != "" %}<br><a href="tel:{{ site.iletisim.telefon_link }}">{{ site.iletisim.telefon }}</a>{% endif %}</address>
+<div class="ftr__social">{% for s in site.sosyal %}<a href="{{ s.url }}" rel="me external" aria-label="{{ site.kurum.ad }} {{ s.ad }}">{% include ikon.html ad=s.ikon %}</a>{% endfor %}</div></div>
+{% for k in site.data.altbilgi %}<nav aria-labelledby="f{{ forloop.index }}"><h2 id="f{{ forloop.index }}">{{ k.baslik }}</h2><ul>{% for b in k.baglantilar %}<li><a href="{{ b.url | relative_url }}">{{ b.ad }}</a></li>{% endfor %}</ul></nav>{% endfor %}
+</div>
+<div class="wrap ftr__mid"><p class="ftr__slogan">{{ site.slogan }}</p>{% include arama-formu.html id="q-ftr" koyu=true %}</div>
+<div class="wrap ftr__bot"><span>© {{ site.time | date: "%Y" }} {{ site.kurum.ad }}{% if site.altbilgi_notu %} · {{ site.altbilgi_notu }}{% endif %}</span><ul>{% for y in site.data.yasal %}<li><a href="{{ y.url | relative_url }}">{{ y.ad }}</a></li>{% endfor %}<li><button class="theme-t js-only" type="button" data-theme-toggle>{% include ikon.html ad="moon" boyut="14" %}<span data-t>Koyu tema</span></button></li></ul></div>
+</footer>

@@ -1,0 +1,22 @@
+---
+layout: varsayilan
+---
+<header class="wrap phead"><div class="phead__in">
+<p class="kicker">{{ page.ust_baslik | default: "Yasal" }}</p>
+<h1 class="h1 h1--md">{{ page.title }}</h1>
+<ul class="meta">{% if page.surum %}<li>Sürüm {{ page.surum }}</li>{% endif %}{% if page.yururluk %}<li><strong>Yürürlük <time datetime="{{ page.yururluk | date: '%Y-%m-%d' }}">{{ page.yururluk | date: '%d.%m.%Y' }}</time></strong></li>{% endif %}{% if page.gecmis %}<li><a href="#gecmis">Değişiklik geçmişi</a></li>{% endif %}</ul>
+</div></header>
+<div class="wrap" style="padding-bottom:72px">
+<div class="doc">
+<aside aria-label="Yasal belgeler"><nav class="toc" aria-labelledby="toc-y"><p class="kicker" id="toc-y">Yasal belgeler</p><ol>{% for _y in site.data.yasal %}<li><a href="{{ _y.url | relative_url }}"{% if _y.url == page.url %} aria-current="true"{% endif %}>{{ _y.ad }}</a></li>{% endfor %}</ol></nav><div style="margin-top:28px">{% include icindekiler.html icerik=content baslik="Bu belgede" %}</div></aside>
+<article class="doc__main">
+{% include icindekiler.html icerik=content baslik="Bu belgede" mobil=true %}
+<div class="prose">
+{% if page.ozet_kutusu %}{% include kisa-yanit.html baslik="Özet" metin=page.ozet_kutusu %}{% endif %}
+{% include icerik.html %}
+{% if page.gecmis %}<h2 id="gecmis">Değişiklik geçmişi</h2>
+<div class="tbl"><div class="tbl__scroll" tabindex="0" role="region" aria-label="Değişiklik geçmişi"><table><thead><tr><th scope="col">Sürüm</th><th scope="col">Tarih</th><th scope="col">Değişiklik</th></tr></thead><tbody>{% for _g in page.gecmis %}<tr><th scope="row" class="mono">{{ _g.surum }}</th><td>{{ _g.tarih | date: '%d.%m.%Y' }}</td><td>{{ _g.degisiklik }}</td></tr>{% endfor %}</tbody></table></div></div>{% endif %}
+</div>
+</article>
+</div>
+</div>

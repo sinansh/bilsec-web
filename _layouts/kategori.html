@@ -1,0 +1,16 @@
+---
+layout: varsayilan
+---
+{%- assign _yl = site.posts | where: "kategori", page.kategori -%}
+<header class="wrap phead" style="padding-bottom:28px"><div class="phead__in">
+<p class="kicker">Blog · Kategori</p>
+<h1 class="h1 h1--md">{{ page.kategori }}</h1>
+{% if page.ozet %}<p class="lead">{{ page.ozet }}</p>{% endif %}
+</div></header>
+<div class="wrap" style="padding-bottom:72px">
+{% include blog-suzgec.html aktif=page.kategori %}
+<section aria-labelledby="h-tum" style="padding-top:40px">
+<h2 class="sr" id="h-tum">{{ page.kategori }} yazıları</h2>
+{% if _yl.size > 0 %}<div class="grid grid--3" style="gap:40px 32px">{% for _y in _yl %}{% include yazi-karti.html yazi=_y %}{% endfor %}</div>{% else %}<p class="muted">Bu kategoride henüz yazı yok.</p>{% endif %}
+</section>
+</div>

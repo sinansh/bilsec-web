@@ -1,0 +1,2 @@
+{%- assign _p = include.yazi -%}
+<a class="post" href="{{ _p.url | relative_url }}">{% if _p.kapak %}<div class="post__img"><img src="{{ _p.kapak | relative_url }}" alt="" loading="lazy"></div>{% endif %}{% if _p.kategori %}<span class="tag tag--teal" style="align-self:flex-start">{{ _p.kategori }}</span>{% endif %}<h3>{{ _p.title }}</h3><p>{{ _p.description }}</p><ul class="meta"><li><time datetime="{{ _p.date | date: '%Y-%m-%d' }}">{{ _p.date | date: '%d.%m.%Y' }}</time></li><li>{% include okuma-suresi.html icerik=_p.content sabit=_p.okuma kisa=true %}</li></ul></a>

@@ -1,0 +1,2 @@
+{%- comment -%} {% include kisa-yanit.html metin="…" kaynak="…" baslik="Tanım" %} — metin Markdown olabilir {%- endcomment -%}
+<div class="answer"{% unless include.bosluk %} style="margin-top:0"{% endunless %}><p class="kicker">{{ include.baslik | default: "Kısa yanıt" }}</p>{{ include.metin | markdownify }}{% if include.kaynak %}<p class="answer__src">{{ include.kaynak }}</p>{% endif %}</div>

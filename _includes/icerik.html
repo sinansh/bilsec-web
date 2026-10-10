@@ -1,0 +1,2 @@
+{%- comment -%} Markdown içeriğini basar; tabloları kaydırılabilir kutuya sarar. Yalnız layout'larda: {% include icerik.html %} {%- endcomment -%}
+{{ content | replace: '<table', '<div class="tbl"><div class="tbl__scroll" tabindex="0" role="region" aria-label="Tablo"><table' | replace: '</table>', '</table></div><p class="tbl__hint">Tabloyu yana kaydırın →</p></div>' }}

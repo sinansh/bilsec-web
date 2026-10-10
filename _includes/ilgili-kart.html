@@ -1,0 +1,6 @@
+{%- comment -%} İlgili içerik kartı (yazı, rehber, SSS, sözlük ya da sayfa) {%- endcomment -%}
+{%- assign _d = include.d -%}
+{%- case _d.collection -%}{%- when "posts" -%}{%- assign _tur = "Blog" -%}{%- when "rehber" -%}{%- assign _tur = "Rehber" -%}{%- when "sss" -%}{%- assign _tur = "SSS" -%}{%- when "sozluk" -%}{%- assign _tur = "Sözlük" -%}{%- else -%}{%- assign _tur = "Sayfa" -%}{%- endcase -%}
+{%- assign _bas = _d.title -%}
+{%- if _d.collection == "rehber" -%}{%- assign _al = site.data.kontrol_alanlari | where: "no", _d.alan | first -%}{%- capture _bas -%}Kontrol alanı {{ _al.kod }}: {{ _d.title }}{%- endcapture -%}{%- endif -%}
+<a class="post" href="{{ _d.url | relative_url }}"><span class="tag tag--teal" style="align-self:flex-start">{{ _tur }}</span><h3>{{ _bas }}</h3><p>{{ _d.kart_metni | default: _d.description | truncate: 120 }}</p></a>

@@ -1,0 +1,158 @@
+# bilsec.tr · site ayarları
+# Bu dosyayı değiştirdikten sonra yerelde `bundle exec jekyll serve` yeniden başlatılmalı.
+# GitHub Pages her push'ta kendisi yeniden derler.
+
+title: BilSec
+tagline: BT ekibi olmayan firmalar için yönetilen BT ve siber güvenlik
+description: BilSec, 10–100 çalışanlı firmalar için BT yönetimini, siber güvenlik izlemeyi ve Siber Hijyen-KOBİ uyum kanıtlarını tek platformda yürütür.
+slogan: Önce bilmek, sonra korumak.
+altbilgi_notu: Bu sitede çerez ve izleme aracı kullanılmaz.
+lang: tr
+locale: tr_TR
+timezone: Europe/Istanbul
+url: "https://bilsec.tr"   # özel alan adıyla yayında baseurl boş kalır
+baseurl: ""
+image: /assets/img/og-image.png   # paylaşım görseli (1200×630)
+
+# ── Kurum ─────────────────────────────────────────────
+kurum:
+  ad: BilSec
+  unvan: BilSec Siber Güvenlik
+  veri_sorumlusu: Fatma Bayrambaş Şahin   # KVKK aydınlatma metninde veri sorumlusu (tüzel kişilik kurulana kadar)
+  mersis: ""  # MERSİS numarası · boş bırakılırsa künyede gösterilmez
+  kulucka:  # boş bırakılırsa künyede gösterilmez
+  veri_konumu: Türkiye
+  logo: /assets/img/logo.svg
+
+# ── İletişim (sitedeki tüm telefon, e-posta, adres buradan gelir) ──
+iletisim:
+  eposta: iletisim@bilsec.tr
+  kvkk_eposta: kvkk@bilsec.tr
+  # Telefon boş bırakılırsa sitede hiçbir yerde gösterilmez.
+  telefon: ""                         # görünen biçim, örn. "+90 312 000 00 00"
+  telefon_link: ""                    # tel: bağlantısı (boşluksuz), örn. "+903120000000"
+  mesai: hafta içi 09:00–18:00
+  # Acil hat boş bırakılırsa "güvenlik olayı" kartı, menüdeki uyarı ve 7/24 ifadeleri gösterilmez.
+  acil_telefon: ""                    # güvenlik olayı hattı · 7/24
+  acil_telefon_link: ""
+  takvim_url: https://calendar.app.google/eEhHxXMVEZXnhcKU8
+  yanit_suresi: bir iş günü
+  adres:
+    satir1: "Yenimahalle"
+    satir2: Ankara
+    # Yapılandırılmış veri (arama motorları) için:
+    sokak: "Beştepe"
+    ilce: Yenimahalle
+    il: Ankara
+    posta_kodu: ""
+    ulke: TR
+
+sosyal:
+  - ad: LinkedIn
+    ikon: linkedin
+    url: https://www.linkedin.com/company/bilsec
+  - ad: X
+    ikon: xbrand
+    url: https://x.com/bilsectr
+  - ad: YouTube
+    ikon: youtube
+    url: https://www.youtube.com/@bilsec
+
+ust_cta:
+  ad: Görüşme planlayın
+  url: /iletisim/#gorusme
+
+# ── İletişim formu (Google Forms) ─────────────────────
+# Alan numaralarını bulmak için: Google Formu düzenle → ⋮ → "Önceden doldurulmuş bağlantı al"
+# → her alana bir şey yazın → "Bağlantı al" → kopyalayın. Bağlantıdaki entry.123456789=…
+# parçaları aşağıya yazılır. Numaralar girilmeden form yayında gösterilmez, yerine e-posta seçeneği çıkar.
+form:
+  action: https://docs.google.com/forms/d/e/1FAIpQLSfxRgupBOU6fEnfzCnnHcEp_lpc7y-EkbGDijIZ6Xvf4VDOEw/formResponse
+  alanlar:
+    ad: entry.245580329         # Adınız Soyadınız
+    firma: entry.2082304062     # Firma
+    eposta: entry.1843094977    # E-Posta
+    telefon: entry.685917172    # Telefon
+    calisan: entry.756092228    # Çalışan Sayısı
+    konu: entry.1085620697      # Konu
+    mesaj: entry.1648385585     # Mesajınız
+  # Seçenekler Google formundakilerle harfi harfine aynı olmalı.
+  calisan_secenekleri: ["1-9", "10-24", "25-49", "50-100", "100+"]
+  konular: ["Denetime hazırlanıyorum", "Denetimden kaldım", "Ürün hakkında soru", "Diğer"]
+
+# ── İçerik ────────────────────────────────────────────
+permalink: /blog/:title/
+paginate: 9
+paginate_path: /blog/sayfa:num/
+
+collections:
+  rehber:
+    output: true
+    permalink: /rehber/:name/
+  sozluk:
+    output: true
+    permalink: /sozluk/:name/
+  sss:
+    output: true
+    permalink: /sss/:name/
+  yazarlar:
+    output: true
+    permalink: /ekip/:name/
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: varsayilan }
+  - scope: { path: "", type: posts }
+    values:
+      layout: yazi
+      nav: blog
+      cta: blog
+      kirinti: [{ ad: Blog, url: /blog/ }]
+  - scope: { path: "", type: rehber }
+    values:
+      layout: kontrol-alani
+      nav: rehber
+      cta: rehber
+      kirinti: [{ ad: Rehber, url: /rehber/ }, { ad: Kontrol alanları, url: "/rehber/#alanlar" }]
+  - scope: { path: "", type: sozluk }
+    values:
+      layout: terim
+      nav: rehber
+      cta: sss
+      kirinti: [{ ad: Rehber, url: /rehber/ }, { ad: Sözlük, url: /sozluk/ }]
+  - scope: { path: "", type: sss }
+    values:
+      layout: soru
+      nav: sss
+      cta: sss
+      kirinti: [{ ad: SSS, url: /sss/ }]
+  - scope: { path: "", type: yazarlar }
+    values:
+      layout: yazar
+      cta: kurum
+      kirinti: [{ ad: Hakkımızda, url: /hakkimizda/ }, { ad: Ekip, url: "/hakkimizda/#ekip" }]
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  transliterated_header_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+feed:
+  path: /blog/feed.xml
+
+exclude:
+  - README.md
+  - YAZIM-KILAVUZU.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle

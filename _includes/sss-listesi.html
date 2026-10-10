@@ -1,0 +1,11 @@
+{%- comment -%}
+Soru listesi (akordeon) + FAQPage verisi.
+{% include sss-listesi.html %}                 sayfanın `sorular:` listesi [{ soru, yanit }]
+{% include sss-listesi.html konu="hijyen" %}   _sss koleksiyonundan bir konu
+seçenekler: ilk_acik=true, jsonld=false
+{%- endcomment -%}
+{%- if include.konu -%}{%- assign _ss = site.sss | where: "konu", include.konu | sort: "sira" -%}{%- else -%}{%- assign _ss = include.sorular | default: page.sorular -%}{%- endif -%}
+<div class="faq">{% for _q in _ss %}{% assign _soru = _q.soru | default: _q.title %}{% assign _yanit = _q.yanit | default: _q.kisa_yanit %}<details{% if include.ilk_acik and forloop.first %} open{% endif %}><summary><h3>{{ _soru }}</h3></summary><div class="faq__a">{{ _yanit | markdownify }}{% if _q.collection == "sss" %}{% assign _det = _q.content | strip | size %}{% if _det > 0 %}<a class="tlink" href="{{ _q.url | relative_url }}">Ayrıntılı yanıt</a>{% endif %}{% elsif _q.link %}<a class="tlink" href="{{ _q.link | relative_url }}">{{ _q.link_metni | default: "Ayrıntılı yanıt" }}</a>{% endif %}</div></details>{% endfor %}</div>
+{%- unless include.jsonld == false %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for _q in _ss %}{% assign _soru = _q.soru | default: _q.title %}{% assign _yanit = _q.yanit | default: _q.kisa_yanit %}{"@type":"Question","name":{{ _soru | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ _yanit | markdownify | strip_html | strip | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}</script>
+{%- endunless -%}

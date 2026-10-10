@@ -1,0 +1,5 @@
+# Yazıların `kategori:` değeri `ad` ile birebir aynı yazılmalı. Her kategorinin blog/kategori/ altında bir sayfası var.
+- { ad: Temel bilgi, url: /blog/kategori/temel-bilgi/ }
+- { ad: Uygulama,    url: /blog/kategori/uygulama/ }
+- { ad: Denetim,     url: /blog/kategori/denetim/ }
+- { ad: Duyuru,      url: /blog/kategori/duyuru/ }

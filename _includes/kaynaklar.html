@@ -1,0 +1,3 @@
+{%- comment -%} Kaynak listesi: front matter `kaynaklar: [{ ad, url, aciklama }]`. {% include kaynaklar.html %} {%- endcomment -%}
+{%- assign _kl = include.liste | default: page.kaynaklar -%}
+<ol class="sources">{% for _k in _kl %}<li><a href="{{ _k.url }}" rel="external">{{ _k.ad }}</a>{% if _k.aciklama %}<span class="sources__m">{{ _k.aciklama }}</span>{% endif %}</li>{% endfor %}</ol>

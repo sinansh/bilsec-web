@@ -1,0 +1,10 @@
+{%- comment -%} Öne çıkan yazı (blog sayfasının başı) {%- endcomment -%}
+{%- assign _p = include.yazi -%}
+{%- assign _ya = site.yazarlar | where: "slug", _p.yazar | first -%}
+<section aria-labelledby="h-one" style="padding:40px 0 48px;border-bottom:1px solid var(--border-default)">
+<h2 class="sr" id="h-one">Öne çıkan yazı</h2>
+<a class="post" href="{{ _p.url | relative_url }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:center">
+{% if _p.kapak %}<div class="post__img"><img src="{{ _p.kapak | relative_url }}" alt="" loading="lazy"></div>{% endif %}
+<div class="stack" style="gap:14px"><div class="row" style="gap:8px">{% if _p.kategori %}<span class="tag tag--teal">{{ _p.kategori }}</span>{% endif %}{% for _t in _p.tags limit: 1 %}<span class="tag">#{{ _t }}</span>{% endfor %}</div><h3 style="font-size:clamp(24px,3vw,30px);line-height:1.2;letter-spacing:-0.02em">{{ _p.title }}</h3><p style="font-size:17px">{{ _p.ozet | default: _p.description }}</p><ul class="meta">{% if _ya %}<li>{{ _ya.title }}</li>{% endif %}<li><time datetime="{{ _p.date | date: '%Y-%m-%d' }}">{{ _p.date | date: '%d.%m.%Y' }}</time></li><li>{% include okuma-suresi.html icerik=_p.content sabit=_p.okuma %}</li></ul></div>
+</a>
+</section>

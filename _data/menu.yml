@@ -1,0 +1,25 @@
+# Üst menü. id, sayfaların front matter'ındaki `nav:` değeriyle eşleşir (etkin bağlantı).
+- id: urun
+  ad: Ürün
+  url: /urun/
+  aciklama: Üç katmanlı yönetilen BT ve güvenlik platformu
+- id: cozum
+  ad: Çözümler
+  url: /cozumler/siber-hijyen-kobi/
+  aciklama: Siber Hijyen-KOBİ belgesine hazırlık
+- id: rehber
+  ad: Rehber
+  url: /rehber/
+  aciklama: Siber hijyen kaynak sayfası ve 13 kontrol alanı
+- id: blog
+  ad: Blog
+  url: /blog/
+  aciklama: Uygulama notları ve duyurular
+- id: sss
+  ad: SSS
+  url: /sss/
+  aciklama: Konulara ayrılmış sorular
+- id: iletisim
+  ad: İletişim
+  url: /iletisim/
+  aciklama: Yardıma mı ihtiyacınız var? Buradayız

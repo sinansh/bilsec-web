@@ -1,0 +1,22 @@
+---
+title: Arama
+description: Rehberde, SSS'de, sözlükte ve blogda arayın.
+permalink: /ara/
+kirinti: []
+sitemap: false
+arama: false
+---
+<header class="wrap phead" style="padding-bottom:32px"><div class="phead__in">
+<p class="kicker">Arama</p>
+<h1 class="h1 h1--md">Sitede arayın</h1>
+<div style="max-width:640px;margin-top:8px">{% include arama-formu.html id="q-ara" %}</div>
+</div></header>
+<div class="wrap" style="padding-bottom:72px">
+<div class="stack" style="gap:20px;max-width:860px">
+<p class="kicker kicker--muted" id="ara-durum" role="status" aria-live="polite"></p>
+<ol class="lines" id="ara-sonuc"></ol>
+<div class="note" id="ara-oneri" hidden><p class="kicker note__k">{% include ikon.html ad="info" %}Aradığınızı bulamadınız mı?</p><p>Daha kısa ya da farklı bir kelime deneyin. İçeriklere doğrudan da göz atabilirsiniz: <a href="{{ '/rehber/' | relative_url }}">Rehber</a>, <a href="{{ '/sss/' | relative_url }}">SSS</a>, <a href="{{ '/sozluk/' | relative_url }}">Sözlük</a>, <a href="{{ '/blog/' | relative_url }}">Blog</a>. Sorunuzu <a href="{{ '/iletisim/' | relative_url }}">bize de iletebilirsiniz</a>.</p></div>
+<noscript><div class="note"><p class="kicker note__k">{% include ikon.html ad="info" %}Arama için JavaScript gerekiyor</p><p>Tarayıcınızda JavaScript kapalı. İçeriklere doğrudan ulaşabilirsiniz: <a href="{{ '/rehber/' | relative_url }}">Rehber</a>, <a href="{{ '/sss/' | relative_url }}">SSS</a>, <a href="{{ '/sozluk/' | relative_url }}">Sözlük</a>, <a href="{{ '/blog/' | relative_url }}">Blog</a>.</p></div></noscript>
+</div>
+</div>
+<script src="{{ '/assets/js/arama.js' | relative_url }}" defer data-dizin="{{ '/arama.json' | relative_url }}"></script>

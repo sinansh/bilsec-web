@@ -1,0 +1,2 @@
+{%- comment -%} Kullanım: {% include ikon.html ad="info" %} · seçenekler: boyut="18", sinif="icon24". Ad listesi: _data/ikonlar.yml {%- endcomment -%}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" focusable="false"{% if include.sinif %} class="{{ include.sinif }}"{% endif %}{% if include.boyut %} width="{{ include.boyut }}" height="{{ include.boyut }}"{% endif %}>{{ site.data.ikonlar[include.ad] }}</svg>

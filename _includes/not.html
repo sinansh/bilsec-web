@@ -1,0 +1,10 @@
+{%- comment -%}
+Not kutusu. tur: bilgi (varsayılan) | uyari | hata. baslik isteğe bağlı. hata türünde dogrusu="…" eklenebilir.
+{% include not.html tur="uyari" metin="Bulut senkronizasyonu tek başına yedek sayılmaz." %}
+{%- endcomment -%}
+{%- case include.tur -%}
+{%- when "uyari" -%}{%- assign _nc = "note note--warn" -%}{%- assign _ni = "alert" -%}{%- assign _nb = "Uyarı" -%}
+{%- when "hata" -%}{%- assign _nc = "note note--mistake" -%}{%- assign _ni = "mistake" -%}{%- assign _nb = "Sık yapılan hata" -%}
+{%- else -%}{%- assign _nc = "note" -%}{%- assign _ni = "info" -%}{%- assign _nb = "Bilgi" -%}
+{%- endcase -%}
+<div class="{{ _nc }}"><p class="kicker note__k">{% include ikon.html ad=_ni %}{{ include.baslik | default: _nb }}</p>{{ include.metin | markdownify }}{% if include.dogrusu %}<div class="note__fix"><b>Doğrusu</b>{{ include.dogrusu | markdownify }}</div>{% endif %}</div>

@@ -1,0 +1,14 @@
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header class="hdr"><div class="wrap hdr__in">{% include logo.html %}
+<nav class="hdr__nav" aria-label="Ana menü"><ul>{% for m in site.data.menu %}<li><a href="{{ m.url | relative_url }}"{% if m.id == page.nav %} aria-current="page"{% endif %}>{{ m.ad }}</a></li>{% endfor %}</ul></nav>
+<div class="hdr__tools">
+<details class="pop hdr__search"><summary class="ibtn" aria-label="Sitede ara">{% include ikon.html ad="search" %}</summary><div class="pop__panel">{% include arama-formu.html id="q-hdr" %}</div></details>
+<button class="ibtn hdr__theme js-only" type="button" data-theme-toggle aria-label="Koyu temaya geç">{% include ikon.html ad="moon" %}</button>
+<a class="btn btn--primary btn--sm hdr__cta" href="{{ site.ust_cta.url | relative_url }}">{{ site.ust_cta.ad }}</a>
+<details class="hdr__menu"><summary aria-label="Menü"><span class="m">Menü</span><span class="x">Kapat</span></summary><div class="mnav">
+<nav aria-label="Mobil menü"><ul>{% for m in site.data.menu %}<li><a class="mnav__l" href="{{ m.url | relative_url }}"{% if m.id == page.nav %} aria-current="page"{% endif %}>{{ m.ad }}</a><span class="mnav__sub">{{ m.aciklama }}</span></li>{% endfor %}</ul></nav>
+{% include arama-formu.html id="q-mob" %}
+{% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}<div class="note"><p class="kicker kicker--danger">Şu an bir güvenlik olayı mı yaşıyorsunuz?</p><p>Mesai dışında da arayabilirsiniz: <a href="tel:{{ site.iletisim.acil_telefon_link }}"><strong>{{ site.iletisim.acil_telefon }}</strong></a></p></div>{% endif %}
+<button class="btn btn--outline js-only" type="button" data-theme-toggle>{% include ikon.html ad="moon" boyut="18" %}<span data-t>Koyu tema</span></button>
+</div></details>
+</div></div></header>

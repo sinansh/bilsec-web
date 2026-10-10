@@ -1,0 +1,25 @@
+- baslik: Ürün
+  baglantilar:
+    - { ad: Genel bakış, url: /urun/ }
+    - { ad: BT ve dizin yönetimi, url: /urun/bt-yonetimi/ }
+    - { ad: Güvenlik izleme ve yedekleme, url: "/urun/#katmanlar" }
+    - { ad: Yönetilen operasyon ve uyum, url: "/urun/#katmanlar" }
+    - { ad: Paketler, url: "/urun/#paketler" }
+- baslik: Çözümler
+  baglantilar:
+    - { ad: Siber Hijyen-KOBİ hazırlığı, url: /cozumler/siber-hijyen-kobi/ }
+    - { ad: Denetimden kaldım, url: "/iletisim/#durum" }
+    # Acil hat numarası alınınca geri açın:
+    # - { ad: Güvenlik olayı desteği, url: "/iletisim/#durum" }
+- baslik: Kaynaklar
+  baglantilar:
+    - { ad: Siber hijyen rehberi, url: /rehber/ }
+    - { ad: 13 kontrol alanı, url: "/rehber/#alanlar" }
+    - { ad: Blog, url: /blog/ }
+    - { ad: SSS, url: /sss/ }
+    - { ad: Sözlük, url: /sozluk/ }
+- baslik: Kurum
+  baglantilar:
+    - { ad: Hakkımızda, url: /hakkimizda/ }
+    - { ad: Ekip ve yazarlar, url: "/hakkimizda/#ekip" }
+    - { ad: İletişim, url: /iletisim/ }

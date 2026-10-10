@@ -1,0 +1,18 @@
+---
+title: "Sayfa bulunamadı"
+description: "Aradığınız sayfa bulunamadı."
+permalink: "/404.html"
+kirinti: []
+sitemap: false
+arama: false
+---
+<section class="wrap" style="padding:72px 24px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:center">
+<div class="stack" style="gap:20px">
+<p class="kicker">Hata 404</p>
+<h1 class="h1">Bu sayfa bulunamadı</h1>
+<p class="lead">Adres değişmiş ya da sayfa kaldırılmış olabilir. Aradığınızı sitede arayabilir ya da aşağıdaki sayfalardan devam edebilirsiniz.</p>
+<div style="max-width:520px">{% include arama-formu.html id="q-404" %}</div>
+<ul class="lines" style="max-width:520px"><li><a class="tlink" href="{{ '/' | relative_url }}" style="min-height:0">Ana sayfa</a></li><li><a class="tlink" href="{{ '/rehber/' | relative_url }}" style="min-height:0">Siber Hijyen-KOBİ rehberi</a></li><li><a class="tlink" href="{{ '/sss/' | relative_url }}" style="min-height:0">Sık sorulan sorular</a></li><li><a class="tlink" href="{{ '/iletisim/' | relative_url }}" style="min-height:0">İletişim</a></li></ul>
+</div>
+<div style="display:flex;justify-content:center">{% include kontur.html boyut=300 %}</div>
+</section>

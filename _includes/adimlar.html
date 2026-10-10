@@ -1,0 +1,11 @@
+{%- comment -%}
+Adım adım kılavuz (HowTo). Veriyi front matter'da tanımlayın, adını verin:
+{% include adimlar.html veri=page.test %}
+  test:
+    baslik: …
+    bilgiler: [{ ad: Süre, deger: "~45 dakika" }]
+    adimlar: [{ baslik: …, metin: … }]
+{%- endcomment -%}
+{%- assign _a = include.veri -%}
+<div class="steps"><div class="steps__head"><h3>{{ _a.baslik }}</h3>{% if _a.bilgiler %}<dl class="steps__facts">{% for _b in _a.bilgiler %}<div><dt>{{ _b.ad }}</dt><dd>{{ _b.deger }}</dd></div>{% endfor %}</dl>{% endif %}</div><ol>{% for _s in _a.adimlar %}<li><div><h4>{{ _s.baslik }}</h4>{{ _s.metin | markdownify }}</div></li>{% endfor %}</ol></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":{{ _a.baslik | jsonify }}{% for _b in _a.bilgiler %}{% if _b.ad == "Süre" and _b.iso %},"totalTime":{{ _b.iso | jsonify }}{% endif %}{% endfor %},"step":[{% for _s in _a.adimlar %}{"@type":"HowToStep","position":{{ forloop.index }},"name":{{ _s.baslik | jsonify }},"text":{{ _s.metin | strip_html | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}</script>

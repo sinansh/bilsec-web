@@ -1,0 +1,2 @@
+{%- comment -%} Kanıt özeti tablosu: `maddeler` içindeki politika / uygulama / guncellik alanlarından. {% include kanit-ozeti.html %} {%- endcomment -%}
+<table class="tbl--sticky"><thead><tr><th scope="col">Madde</th><th scope="col">Politika / prosedür</th><th scope="col">Uygulama kanıtı</th><th scope="col">Güncellik</th></tr></thead><tbody>{% for _m in page.maddeler %}<tr><th scope="row">{{ _m.no }}</th><td>{{ _m.politika }}</td><td>{{ _m.uygulama }}</td><td>{{ _m.guncellik }}</td></tr>{% endfor %}</tbody></table>

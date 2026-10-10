@@ -1,0 +1,21 @@
+---
+title: Etiketler
+description: Blog yazılarının etiketlere göre listesi.
+permalink: /blog/etiketler/
+nav: blog
+cta: blog
+kirinti: [{ ad: Blog, url: /blog/ }]
+---
+{%- assign _et = site.tags | sort -%}
+<header class="wrap phead" style="padding-bottom:28px"><div class="phead__in">
+<p class="kicker">Blog</p>
+<h1 class="h1 h1--md">Etiketler</h1>
+<ul class="taglist" style="gap:8px">{% for _t in _et %}<li><a class="tag" href="#{{ _t[0] | slugify: 'latin' }}">#{{ _t[0] }} <span class="mono">· {{ _t[1].size }}</span></a></li>{% endfor %}</ul>
+</div></header>
+<div class="wrap" style="padding-bottom:72px">
+<div class="stack" style="gap:48px;max-width:860px">
+{% for _t in _et %}<section aria-labelledby="{{ _t[0] | slugify: 'latin' }}"><h2 class="h-sec" id="{{ _t[0] | slugify: 'latin' }}" style="font-size:24px;margin-bottom:12px">#{{ _t[0] }}</h2>
+<ul class="lines">{% for _d in _t[1] %}<li><a class="post" href="{{ _d.url | relative_url }}" style="flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><h3 style="font-size:18px;flex:1 1 380px">{{ _d.title }}</h3><ul class="meta">{% if _d.kategori %}<li>{{ _d.kategori }}</li>{% endif %}<li>{{ _d.date | date: '%d.%m.%Y' }}</li></ul></a></li>{% endfor %}</ul>
+</section>{% endfor %}
+</div>
+</div>

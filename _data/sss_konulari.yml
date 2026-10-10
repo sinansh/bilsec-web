@@ -1,0 +1,6 @@
+# SSS sayfasındaki konu sırası. Soruların `konu:` değeri id ile eşleşir.
+- { id: hijyen,   ad: Siber Hijyen-KOBİ,  kisa: Siber Hijyen-KOBİ }
+- { id: urun,     ad: BilSec Platformu,   kisa: BilSec Platformu }
+- { id: kurulum,  ad: Kurulum ve süre,    kisa: Kurulum }
+- { id: veri,     ad: Veri ve gizlilik,   kisa: Veri }
+- { id: fiyat,    ad: Fiyat ve sözleşme,  kisa: Fiyat }

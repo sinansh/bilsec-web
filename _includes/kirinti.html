@@ -1,0 +1,13 @@
+{%- comment -%}
+Ekmek kırıntısı + BreadcrumbList. Sayfada `kirinti:` tanımlıysa gösterilir (boş liste [] = yalnız "Ana sayfa › Başlık").
+Son öğe page.kirinti_son ya da page.title. Blog yazılarında kategori, SSS'de konu kendiliğinden eklenir.
+{%- endcomment -%}
+{%- if page.kirinti -%}
+{%- assign _son = page.kirinti_son | default: page.title -%}
+{%- assign _ek_ad = nil -%}{%- assign _ek_url = nil -%}
+{%- if page.collection == "posts" and page.kategori -%}{%- assign _k = site.data.blog_kategorileri | where: "ad", page.kategori | first -%}{%- if _k -%}{%- assign _ek_ad = _k.ad -%}{%- assign _ek_url = _k.url -%}{%- endif -%}{%- endif -%}
+{%- if page.collection == "sss" and page.konu -%}{%- assign _k = site.data.sss_konulari | where: "id", page.konu | first -%}{%- if _k -%}{%- assign _ek_ad = _k.ad -%}{%- capture _ek_url -%}/sss/#{{ _k.id }}{%- endcapture -%}{%- endif -%}{%- endif -%}
+<nav class="wrap crumbs" aria-label="Konum"><ol><li><a href="{{ '/' | relative_url }}">Ana sayfa</a></li>{% for x in page.kirinti %}<li><a href="{{ x.url | relative_url }}">{{ x.ad }}</a></li>{% endfor %}{% if _ek_ad %}<li><a href="{{ _ek_url | relative_url }}">{{ _ek_ad }}</a></li>{% endif %}<li><span aria-current="page">{{ _son }}</span></li></ol></nav>
+{%- assign _n = 1 %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana sayfa","item":{{ '/' | absolute_url | jsonify }}}{% for x in page.kirinti %}{% assign _n = _n | plus: 1 %},{"@type":"ListItem","position":{{ _n }},"name":{{ x.ad | jsonify }},"item":{{ x.url | absolute_url | jsonify }}}{% endfor %}{% if _ek_ad %}{% assign _n = _n | plus: 1 %},{"@type":"ListItem","position":{{ _n }},"name":{{ _ek_ad | jsonify }},"item":{{ _ek_url | absolute_url | jsonify }}}{% endif %},{"@type":"ListItem","position":{{ _n | plus: 1 }},"name":{{ _son | jsonify }}}]}</script>
+{%- endif -%}

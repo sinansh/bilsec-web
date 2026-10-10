@@ -1,0 +1,3 @@
+{%- comment -%} Okuma süresi. Elle vermek için front matter'a `okuma: 8` yazın. {%- endcomment -%}
+{%- if include.sabit -%}{%- assign _dk = include.sabit -%}{%- else -%}{%- assign _w = include.icerik | strip_html | number_of_words -%}{%- assign _dk = _w | divided_by: 180 -%}{%- if _dk < 1 -%}{%- assign _dk = 1 -%}{%- endif -%}{%- endif -%}
+{{ _dk }} dk{% unless include.kisa %} okuma{% endunless %}

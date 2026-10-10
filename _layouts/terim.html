@@ -1,0 +1,26 @@
+---
+layout: varsayilan
+---
+{%- assign _al = site.data.kontrol_alanlari | where: "no", page.alan | first -%}
+{%- assign _ald = site.rehber | where: "alan", page.alan | first -%}
+<div class="wrap" style="padding-bottom:72px">
+<article class="read">
+<header class="phead"><div class="phead__in">
+<p class="kicker">Sözlük terimi</p>
+<h1 class="h1 h1--md">{{ page.title }}</h1>
+<dl class="facts" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))">{% if page.ingilizce %}<div><dt>İngilizce</dt><dd class="mono" style="font-weight:400">{{ page.ingilizce }}</dd></div>{% endif %}{% if _al %}<div><dt>Kontrol alanı</dt><dd>{% if _ald %}<a href="{{ _ald.url | relative_url }}">{{ _al.kod }} {{ _al.ad }}</a>{% else %}{{ _al.kod }} {{ _al.ad }}{% endif %}</dd></div>{% endif %}{% if page.guncelleme %}<div><dt>Son güncelleme</dt><dd><time datetime="{{ page.guncelleme | date: '%Y-%m-%d' }}">{{ page.guncelleme | date: '%d.%m.%Y' }}</time></dd></div>{% endif %}</dl>
+</div></header>
+<div class="prose">
+{% include kisa-yanit.html baslik="Tanım" metin=page.tanim %}
+{% include icerik.html %}
+{%- assign _il = "" | split: "" -%}{%- for _s in page.ilgili -%}{%- assign _t = site.sozluk | where: "slug", _s | first -%}{%- if _t -%}{%- assign _il = _il | push: _t -%}{%- endif -%}{%- endfor -%}
+{% if _il.size > 0 %}<h2 id="ilgili">İlgili terimler</h2>
+<ul class="taglist" style="gap:8px">{% for _t in _il %}<li><a class="tag" href="{{ _t.url | relative_url }}">{{ _t.title }}</a></li>{% endfor %}</ul>{% endif %}
+{% if page.kaynaklar %}<h2 id="kaynak">Kaynak</h2>
+{% include kaynaklar.html %}{% endif %}
+</div>
+{% if page.previous or page.next %}<nav class="pn" aria-label="Sözlükte gezinme" style="margin-top:48px">{% if page.previous %}<a href="{{ page.previous.url | relative_url }}" rel="prev"><span>← Önceki terim</span>{{ page.previous.title }}</a>{% endif %}{% if page.next %}<a class="pn__next" href="{{ page.next.url | relative_url }}" rel="next"><span>Sonraki terim →</span>{{ page.next.title }}</a>{% endif %}</nav>{% endif %}
+<p style="margin-top:24px"><a class="tlink" href="{{ '/sozluk/' | relative_url }}">Sözlüğe dönün</a></p>
+</article>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":{{ page.title | jsonify }},{% if page.ingilizce %}"alternateName":{{ page.ingilizce | jsonify }},{% endif %}"description":{{ page.tanim | strip_html | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"inDefinedTermSet":{"@type":"DefinedTermSet","name":"Siber güvenlik sözlüğü","url":{{ '/sozluk/' | absolute_url | jsonify }}}}</script>

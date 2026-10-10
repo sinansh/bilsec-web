@@ -1,0 +1,33 @@
+---
+layout: varsayilan
+---
+{%- assign _al = site.data.kontrol_alanlari | where: "no", page.alan | first -%}
+{%- assign _top = site.data.kontrol_alanlari | size -%}
+{%- assign _onc_no = page.alan | minus: 1 -%}{%- assign _snr_no = page.alan | plus: 1 -%}
+{%- assign _onc = site.data.kontrol_alanlari | where: "no", _onc_no | first -%}
+{%- assign _snr = site.data.kontrol_alanlari | where: "no", _snr_no | first -%}
+{%- assign _oncd = site.rehber | where: "alan", _onc_no | first -%}
+{%- assign _snrd = site.rehber | where: "alan", _snr_no | first -%}
+{%- assign _sev = page.maddeler | map: "seviye" | uniq | join: ", " -%}
+{%- if _onc -%}{%- assign _sayac = page.alan | minus: 2 -%}{%- else -%}{%- assign _sayac = page.alan | minus: 1 -%}{%- endif -%}
+<header class="wrap phead"><div class="phead__in">
+<p class="kicker">Kontrol alanı {{ _al.kod }} / {{ _top }}</p>
+<h1 class="h1 h1--md">{{ page.title }}</h1>
+{% if page.ozet %}<p class="lead">{{ page.ozet }}</p>{% endif %}
+<ul class="meta">{% if page.yazar %}<li>Yazan {% include yazar-adi.html yazar=page.yazar %}</li>{% endif %}{% if page.gozden_geciren %}<li>Gözden geçiren {% include yazar-adi.html yazar=page.gozden_geciren %}</li>{% endif %}{% if page.guncelleme %}<li><strong>Son güncelleme <time datetime="{{ page.guncelleme | date: '%Y-%m-%d' }}">{{ page.guncelleme | date: '%d.%m.%Y' }}</time></strong></li>{% endif %}<li>{{ page.maddeler | size }} madde{% if _sev != "" %} · {{ _sev }} seviye{% endif %}</li><li>{% include okuma-suresi.html icerik=content sabit=page.okuma %}</li></ul>
+</div></header>
+<div class="wrap" style="padding-bottom:72px">
+<div class="doc">
+<aside aria-label="İçindekiler">{% include icindekiler.html icerik=content baslik="Bu sayfada" %}
+<nav aria-labelledby="al-t" style="margin-top:32px"><p class="kicker kicker--muted" id="al-t">Komşu alanlar</p><ol class="areas" style="grid-template-columns:1fr;margin-top:8px;counter-reset:a {{ _sayac }}">{% if _onc %}<li>{% if _oncd %}<a href="{{ _oncd.url | relative_url }}" style="font-size:14px;min-height:44px">{{ _onc.ad }}</a>{% else %}<span class="areas__yok" style="font-size:14px;min-height:44px">{{ _onc.ad }}</span>{% endif %}</li>{% endif %}<li><a href="{{ page.url | relative_url }}" style="font-size:14px;min-height:44px" aria-current="page">{{ page.title }}</a></li>{% if _snr %}<li>{% if _snrd %}<a href="{{ _snrd.url | relative_url }}" style="font-size:14px;min-height:44px">{{ _snr.ad }}</a>{% else %}<span class="areas__yok" style="font-size:14px;min-height:44px">{{ _snr.ad }}</span>{% endif %}</li>{% endif %}</ol><a class="tlink" href="{{ '/rehber/#alanlar' | relative_url }}" style="font-size:14px">{{ _top }} alanın tamamı</a></nav></aside>
+<article class="doc__main">
+{% include icindekiler.html icerik=content baslik="Bu sayfada" mobil=true %}
+<div class="prose">
+{% if page.kisa_yanit %}{% include kisa-yanit.html metin=page.kisa_yanit kaynak=page.kisa_yanit_kaynak %}{% endif %}
+{% include icerik.html %}
+</div>
+{% if _onc or _snr %}<nav class="pn" aria-label="Kontrol alanları arasında gezinme" style="margin-top:48px">{% if _onc %}<a href="{% if _oncd %}{{ _oncd.url | relative_url }}{% else %}{{ '/rehber/#alanlar' | relative_url }}{% endif %}" rel="prev"><span>← Önceki alan · {{ _onc.kod }}</span>{{ _onc.ad }}</a>{% endif %}{% if _snr %}<a class="pn__next" href="{% if _snrd %}{{ _snrd.url | relative_url }}{% else %}{{ '/rehber/#alanlar' | relative_url }}{% endif %}" rel="next"><span>Sonraki alan · {{ _snr.kod }} →</span>{{ _snr.ad }}</a>{% endif %}</nav>{% endif %}
+</article>
+</div>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"dateModified":{{ page.guncelleme | default: page.date | date_to_xmlschema | jsonify }},"inLanguage":"tr","isPartOf":{"@type":"WebPage","url":{{ '/rehber/' | absolute_url | jsonify }}}{% assign _ya = site.yazarlar | where: "slug", page.yazar | first %}{% if _ya %},"author":{"@type":"Person","name":{{ _ya.title | jsonify }},"url":{{ _ya.url | absolute_url | jsonify }}}{% endif %},"publisher":{"@type":"Organization","name":{{ site.kurum.unvan | jsonify }}}}</script>

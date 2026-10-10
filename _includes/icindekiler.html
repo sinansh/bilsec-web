@@ -1,0 +1,11 @@
+{%- comment -%}
+İçindekiler: içerikteki <h2 id="…"> başlıklarından üretilir. Eklenti gerekmez.
+{% include icindekiler.html icerik=content baslik="Bu yazıda" %}           masaüstü (aside)
+{% include icindekiler.html icerik=content baslik="Bu yazıda" mobil=true %} mobil (<details>)
+{%- endcomment -%}
+{%- assign _bas = include.baslik | default: "Bu sayfada" -%}
+{%- assign _par = include.icerik | split: '<h2 id="' -%}
+{%- capture _li -%}{%- for _p in _par offset: 1 -%}{%- assign _id = _p | split: '"' | first -%}{%- assign _t = _p | split: '</h2>' | first | prepend: '<x id="' | strip_html | strip -%}<li><a href="#{{ _id }}">{{ _t }}</a></li>{%- endfor -%}{%- endcapture -%}
+{%- if _li != "" -%}
+{%- if include.mobil -%}<details class="toc-m"><summary>{{ _bas }}</summary><ol>{{ _li }}</ol></details>{%- else -%}<nav class="toc" aria-labelledby="toc-t"><p class="kicker" id="toc-t">{{ _bas }}</p><ol>{{ _li }}</ol></nav>{%- endif -%}
+{%- endif -%}

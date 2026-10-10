@@ -1,0 +1,2 @@
+{%- case include.seviye -%}{%- when "Başlangıç" -%}{%- assign _sd = 1 -%}{%- when "Orta" -%}{%- assign _sd = 2 -%}{%- else -%}{%- assign _sd = 3 -%}{%- endcase -%}
+<span class="level"><span class="level__d" aria-hidden="true">{% for _i in (1..3) %}<i class="dia{% if _i > _sd %} dia--empty{% endif %}"></i>{% endfor %}</span>{{ include.seviye }}</span>

@@ -1,0 +1,56 @@
+---
+title: "Yardıma mı ihtiyacınız var? Buradayız"
+description: "BilSec ile iletişim: denetimden kaldıysanız ya da denetime hazırlanıyorsanız. Form, takvim ve e-posta."
+permalink: "/iletisim/"
+nav: "iletisim"
+kirinti: []
+kirinti_son: "İletişim"
+---
+<header class="wrap phead"><div class="phead__in">
+<p class="kicker">İletişim</p>
+<h1 class="h1">Yardıma mı ihtiyacınız var? Buradayız.</h1>
+<p class="lead">Sorunuzu yazın ya da kısa bir görüşme planlayın. Satış baskısı yapmayız; ihtiyacınız BilSec değilse bunu da açıkça söyleriz.</p>
+</div></header>
+
+<section class="wrap" id="durum" aria-labelledby="h-durum" style="padding-bottom:64px">
+<h2 class="kicker" id="h-durum" style="margin-bottom:16px">Durumunuza göre başlayın</h2>
+<div class="grid grid--3">
+<div class="card card--top"><span class="card__n">01</span><h3>Denetimden kaldım</h3><p>Eksiklik bildiriminden sonra en fazla 1 ayınız ve tek düzeltme hakkınız var. Bildirimi bize iletin; aynı iş günü içinde dönüp eksikleri madde madde birlikte çıkarırız.</p><a class="tlink" href="{{ '/cozumler/siber-hijyen-kobi/#kaldim' | relative_url }}">Bir aylık süreyi nasıl planlarız</a></div>
+<div class="card card--top"><span class="card__n">02</span><h3>Denetime hazırlanıyorum</h3><p>Başvurudan önce seviyenizdeki her maddenin politika ve uygulama kanıtını birlikte çıkarırız. 30 dakikalık görüşmenin ardından yazılı özet göndeririz.</p><a class="tlink" href="#gorusme">Takvimden görüşme seçin</a></div>
+{% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}<div class="card" style="border-top:3px solid var(--bs-red)"><span class="card__n" style="color:var(--danger-text)">03 · Acil</span><h3>Şu an bir güvenlik olayı yaşıyorum</h3><p>Formu doldurmayın, arayın. Mesai dışında da yanıt veriyoruz.</p><a class="btn btn--danger" href="tel:{{ site.iletisim.acil_telefon_link }}">{% include ikon.html ad="phone" %}{{ site.iletisim.acil_telefon }}</a><ul class="lines" style="margin-top:4px"><li style="font-size:14.5px;padding:10px 0">Bilgisayarı kapatmayın; ağ kablosunu çıkarın, Wi-Fi'ı kapatın.</li><li style="font-size:14.5px;padding:10px 0">Fidye notunun fotoğrafını çekin, ödeme yapmayın.</li><li style="font-size:14.5px;padding:10px 0">Yedek diskini bilgisayara takmayın.</li></ul></div>{% endif %}
+</div>
+</section>
+
+<section class="sec sec--card" aria-labelledby="h-form" id="form">
+<div class="wrap" style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:start" data-grid="contact">
+<div class="stack" style="gap:24px">
+<div class="stack" style="gap:10px"><h2 class="h-sec" id="h-form">Bize yazın</h2><p class="muted">Yanıtı genelde {{ site.iletisim.yanit_suresi }} içinde veriyoruz. Tüm alanları doldurmanız gerekir.</p></div>
+{% include iletisim-formu.html %}
+</div>
+
+<aside class="stack" style="gap:28px" aria-label="Form dışı seçenekler">
+<div class="card" id="gorusme"><p class="kicker">Takvimden görüşme</p><h3>30 dakikalık görüşme planlayın</h3><p>Uygun bir saati kendiniz seçin. Görüşme çevrim içi yapılır; kamera açmak zorunlu değil.</p><a class="btn btn--dark" href="{{ site.iletisim.takvim_url }}" target="_blank" rel="external noopener">{% include ikon.html ad="calendar" %}Takvimi açın</a></div>
+<dl class="facts" style="grid-template-columns:1fr">
+<div><dt>E-posta</dt><dd><a href="mailto:{{ site.iletisim.eposta }}">{{ site.iletisim.eposta }}</a></dd></div>
+{% if site.iletisim.telefon and site.iletisim.telefon != "" %}<div><dt>Telefon · {{ site.iletisim.mesai }}</dt><dd><a href="tel:{{ site.iletisim.telefon_link }}">{{ site.iletisim.telefon }}</a></dd></div>{% endif %}
+{% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}<div><dt>Güvenlik olayı · 7/24</dt><dd><a href="tel:{{ site.iletisim.acil_telefon_link }}">{{ site.iletisim.acil_telefon }}</a></dd></div>{% endif %}
+<div><dt>Adres</dt><dd style="font-weight:400;line-height:1.6">{{ site.iletisim.adres.satir1 }}<br>{{ site.iletisim.adres.satir2 }}</dd></div>
+</dl>
+<div class="stack" style="gap:12px"><p class="kicker">Yanıt süresi</p><p style="color:var(--text-body)">Form ve e-postalara {{ site.iletisim.yanit_suresi }} içinde{% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}, güvenlik olayı çağrılarına aynı saat içinde{% endif %} dönüyoruz.</p></div>
+<div class="stack" style="gap:12px"><p class="kicker">Görüşme nasıl geçer</p><ul class="lines"><li style="font-size:15px">İlk 10 dakikada sizi dinleriz: firma, çalışanlar, beklenen denetim.</li><li style="font-size:15px">Sonra hangi işlerin eksik olduğunu birlikte işaretleriz.</li><li style="font-size:15px">Görüşme kaydedilmez; ağınız ya da sistemleriniz hakkında gizli bilgi istemeyiz.</li><li style="font-size:15px">Görüşmeden sonra satış e-postası göndermeyiz; yalnız yazılı özet.</li></ul></div>
+</aside>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="h-sss">
+<div class="wrap read">
+<div class="sec__head"><h2 class="h-sec" id="h-sss">İletişimden önce en sık sorulanlar</h2></div>
+<div class="faq">
+<details><summary><h3>Görüşme ücretli mi?</h3></summary><div class="faq__a"><p>Hayır. İlk görüşme ve ön değerlendirme ücretsizdir.</p></div></details>
+<details><summary><h3>Görüşmeye kim katılmalı?</h3></summary><div class="faq__a"><p>Firma sahibi ya da BT işlerinden sorumlu idari kişi yeterli. Teknik bilgi gerekmez.</p></div></details>
+<details><summary><h3>Görüşmeden sonra ne olur?</h3></summary><div class="faq__a"><p>İki iş günü içinde yazılı bir özet ve isterseniz teklif göndeririz. Yanıt vermezseniz tekrar aramayız.</p></div></details>
+<details><summary><h3>Belgeyi almayı garanti ediyor musunuz?</h3></summary><div class="faq__a"><p>Hayır. Belgelendirme kararını TRTEST verir. Biz denetime hazırlanmanıza ve hazır kalmanıza yardım ederiz.</p></div></details>
+<details><summary><h3>Ankara dışındaki firmalarla çalışıyor musunuz?</h3></summary><div class="faq__a"><p>Evet. Kurulum uzaktan yapılır; cihaz kargoyla gönderilir.</p></div></details>
+</div>
+</div>
+</section>

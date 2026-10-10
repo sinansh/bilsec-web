@@ -1,0 +1,39 @@
+---
+layout: varsayilan
+---
+{%- assign _yz = site.yazarlar | where: "slug", page.yazar | first -%}
+{%- assign _kat = site.data.blog_kategorileri | where: "ad", page.kategori | first -%}
+<article>
+<header class="wrap phead" style="padding-bottom:32px"><div class="phead__in">
+{% if _kat %}<div class="row" style="gap:8px"><a class="tag tag--teal" href="{{ _kat.url | relative_url }}">{{ _kat.ad }}</a></div>{% endif %}
+<h1 class="h1 h1--md">{{ page.title }}</h1>
+{% if page.ozet %}<p class="lead">{{ page.ozet }}</p>{% endif %}
+<div class="row" style="gap:14px;margin-top:4px">{% if _yz.portre %}<div class="author__ph" style="width:44px;border-radius:2px"><img src="{{ _yz.portre | relative_url }}" alt="" width="44" height="55"></div>{% endif %}<ul class="meta">{% if _yz %}<li><a href="{{ _yz.url | relative_url }}">{{ _yz.title }}</a></li>{% endif %}<li>Yayın <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d.%m.%Y' }}</time></li>{% if page.guncelleme %}<li><strong>Güncelleme <time datetime="{{ page.guncelleme | date: '%Y-%m-%d' }}">{{ page.guncelleme | date: '%d.%m.%Y' }}</time></strong></li>{% endif %}<li>{% include okuma-suresi.html icerik=content sabit=page.okuma %}</li></ul></div>
+</div></header>
+{% if page.kapak %}<div class="wrap"><figure style="max-width:1000px"><div class="fig__frame"><img src="{{ page.kapak | relative_url }}" alt="{{ page.kapak_alt }}" width="1600" height="800"></div>{% if page.kapak_aciklama %}<figcaption>{{ page.kapak_aciklama }}</figcaption>{% endif %}</figure></div>{% endif %}
+<div class="wrap" style="padding:48px 24px 72px">
+<div class="doc doc--right">
+<div class="doc__main">
+{% include icindekiler.html icerik=content baslik="Bu yazıda" mobil=true %}
+<div class="prose">
+{% if page.kisa_yanit %}{% include kisa-yanit.html metin=page.kisa_yanit kaynak=page.kisa_yanit_kaynak %}{% endif %}
+{% include icerik.html %}
+</div>
+{% if page.tags.size > 0 %}<div style="margin-top:40px;display:flex;flex-direction:column;gap:12px"><p class="kicker kicker--muted">Etiketler</p><ul class="taglist">{% for _t in page.tags %}<li><a class="tag" href="{{ '/blog/etiketler/' | relative_url }}#{{ _t | slugify: 'latin' }}">#{{ _t }}</a></li>{% endfor %}</ul></div>{% endif %}
+{% if page.yazar %}<div style="margin-top:32px">{% include yazar-karti.html yazar=page.yazar etiket="Yazar" kurumlu=true %}</div>{% endif %}
+{% if page.previous or page.next %}<nav class="pn" aria-label="Önceki ve sonraki yazı" style="margin-top:32px">{% if page.previous %}<a href="{{ page.previous.url | relative_url }}" rel="prev"><span>← Önceki yazı</span>{{ page.previous.title }}</a>{% endif %}{% if page.next %}<a class="pn__next" href="{{ page.next.url | relative_url }}" rel="next"><span>Sonraki yazı →</span>{{ page.next.title }}</a>{% endif %}</nav>{% endif %}
+</div>
+<aside aria-label="İçindekiler">{% include icindekiler.html icerik=content baslik="Bu yazıda" %}</aside>
+</div>
+</div>
+</article>
+{%- if page.ilgili -%}
+<section class="sec sec--card" aria-labelledby="h-ilgili">
+<div class="wrap">
+<div class="sec__head"><h2 class="h-sec" id="h-ilgili">İlgili içerikler</h2></div>
+<div class="grid grid--3" style="gap:32px">
+{% for _u in page.ilgili %}{% assign _ild = site.documents | where: "url", _u | first %}{% unless _ild %}{% assign _ild = site.pages | where: "url", _u | first %}{% endunless %}{% if _ild %}{% include ilgili-kart.html d=_ild %}{% endif %}{% endfor %}
+</div>
+</div>
+</section>
+{%- endif -%}

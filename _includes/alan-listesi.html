@@ -1,0 +1,5 @@
+{%- comment -%} 13 alan kartları (<ol class="areas"> içeriği). Sayfası yazılmamış alanlar bağlantısız görünür. {%- endcomment -%}
+{%- for _a in site.data.kontrol_alanlari -%}
+{%- assign _d = site.rehber | where: "alan", _a.no | first -%}
+<li>{% if _d %}<a href="{{ _d.url | relative_url }}"{% if _d.url == page.url %} aria-current="page"{% endif %}>{{ _a.ad }} <span class="areas__n">{{ _a.toplam }} madde</span></a>{% else %}<span class="areas__yok">{{ _a.ad }} <span class="areas__n">{{ _a.toplam }} madde · yakında</span></span>{% endif %}</li>
+{%- endfor -%}

@@ -1,0 +1,14 @@
+---
+layout: null
+permalink: /arama.json
+sitemap: false
+arama: false
+---
+{%- assign _sy = site.pages | where_exp: "p", "p.title != nil" | where_exp: "p", "p.arama != false" -%}
+{%- assign _hepsi = site.posts | concat: site.rehber | concat: site.sss | concat: site.sozluk | concat: _sy -%}
+[{%- for d in _hepsi -%}
+{%- case d.collection -%}{%- when "posts" -%}{%- assign _k = "Blog" -%}{%- when "rehber" -%}{%- assign _k = "Rehber" -%}{%- when "sss" -%}{%- assign _k = "SSS" -%}{%- when "sozluk" -%}{%- assign _k = "Sözlük" -%}{%- else -%}{%- assign _k = "Sayfa" -%}{%- endcase -%}
+{%- assign _o = d.description | default: d.kisa_yanit | default: d.kisa_tanim | default: d.tanim | default: "" -%}
+{%- if d.collection -%}{%- assign _m = d.content | strip_html | normalize_whitespace | truncatewords: 160, "" -%}{%- else -%}{%- assign _m = "" -%}{%- endif -%}
+{"t":{{ d.title | jsonify }},"u":{{ d.url | relative_url | jsonify }},"k":{{ _k | jsonify }},"o":{{ _o | strip_html | jsonify }},"m":{{ _m | jsonify }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}]

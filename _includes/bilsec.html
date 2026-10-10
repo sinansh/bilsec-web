@@ -1,0 +1,2 @@
+{%- comment -%} {% include bilsec.html metin="…" link="/urun/#katmanlar" link_metni="Güvenlik izleme ve yedekleme" %} {%- endcomment -%}
+<div class="bshow">{% include isaret.html sinif="mk" %}<p class="kicker">{{ include.baslik | default: "BilSec bunu nasıl karşılar" }}</p>{{ include.metin | markdownify }}{% if include.link %}<a class="tlink" href="{{ include.link | relative_url }}">{{ include.link_metni | default: "Ayrıntılar" }}</a>{% endif %}</div>

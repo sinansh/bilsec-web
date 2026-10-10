@@ -1,0 +1,37 @@
+# Sayfa sonu çağrı bandı. Sayfada `cta: urun` gibi seçilir.
+# Metinlerde [eposta] ve [kvkk_eposta] yazarsanız _config.yml'deki adres yerleşir.
+urun:
+  baslik: Firmanızın bugünkü durumunu birlikte inceleyelim
+  metin: 30 dakikalık görüşmede hangi işlerin kimde olduğunu, hangi katmanla başlamanın mantıklı olduğunu konuşuruz. Teknik bilgi gerekmez.
+  birincil: { ad: Görüşme planlayın, url: "/iletisim/#gorusme" }
+  ikincil: { ad: Paketleri inceleyin, url: "/urun/#paketler" }
+  not: Görüşmeden sonra satış e-postası göndermeyiz.
+rehber:
+  baslik: Bu alanda nerede olduğunuzu bilmiyor musunuz?
+  metin: Kontrol listesini birlikte gözden geçirelim. Eksikleri ve hangi kanıtın sizde olduğunu görüşme sonunda yazılı olarak iletiriz.
+  birincil: { ad: Ön değerlendirme görüşmesi planlayın, url: "/iletisim/#gorusme" }
+  ikincil: { ad: Rehberin tamamına dönün, url: /rehber/ }
+  not: Belgeyi TRTEST verir. Biz denetime hazırlanmanıza ve hazır kalmanıza yardım ederiz.
+blog:
+  baslik: Yazıdaki adımları kendi firmanızda nasıl uygularsınız?
+  metin: Sorunuzu bize yazın ya da kısa bir görüşme planlayın. Yanıtı genelde bir iş günü içinde veriyoruz.
+  birincil: { ad: Bize yazın, url: /iletisim/ }
+  ikincil: { ad: Rehbere göz atın, url: /rehber/ }
+  not: Görüşme kaydedilmez.
+sss:
+  baslik: Sorunuzun yanıtını bulamadınız mı?
+  metin: Bize yazın; yanıtı bir iş günü içinde verelim. Sık gelen soruları bu sayfaya ekliyoruz.
+  birincil: { ad: Sorunuzu iletin, url: /iletisim/ }
+  ikincil: { ad: Sözlüğe bakın, url: /sozluk/ }
+  not: Adınız ve firmanız soru sayfasında hiçbir zaman yer almaz.
+kurum:
+  baslik: Bizimle tanışmak ister misiniz?
+  metin: Ürünü, yöntemimizi ve ekibi 30 dakikada anlatırız. Kamera açmak zorunlu değil.
+  birincil: { ad: Görüşme planlayın, url: "/iletisim/#gorusme" }
+  ikincil: { ad: Ürünü inceleyin, url: /urun/ }
+  not: Görüşmeden sonra satış e-postası göndermeyiz.
+yasal:
+  baslik: Kişisel verilerinizle ilgili bir talebiniz mi var?
+  metin: Başvurunuzu [kvkk_eposta] adresine iletebilirsiniz. Yanıt süresi en geç 30 gündür.
+  birincil: { ad: "[kvkk_eposta] adresine yazın", url: "mailto:[kvkk_eposta]" }
+  not: Bu sitede çerez ve izleme aracı kullanılmaz.

@@ -1,0 +1,4 @@
+{%- comment -%} Kontrol kartları: front matter'daki `maddeler` listesinden. {% include kontrol-maddeleri.html %} {%- endcomment -%}
+{%- for _m in page.maddeler -%}
+<div class="ctrl"><div class="ctrl__head"><span class="ctrl__id">MADDE {{ _m.no }}</span>{% include seviye.html seviye=_m.seviye %}</div><h3>{{ _m.baslik }}</h3><dl class="ctrl__body"><div><dt>Ne isteniyor</dt><dd>{{ _m.ne_isteniyor }}</dd></div><div><dt>Hangi kanıt sunulur</dt><dd><ul>{% for _k in _m.kanitlar %}<li>{{ _k }}</li>{% endfor %}</ul></dd></div></dl>{% if _m.bilsec %}{% assign _bu = _m.bilsec_url | default: "/urun/#katmanlar" %}<div class="ctrl__foot"><a class="tlink" href="{{ _bu | relative_url }}">BilSec'te karşılığı: {{ _m.bilsec }}</a></div>{% endif %}</div>
+{%- endfor -%}

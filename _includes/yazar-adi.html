@@ -1,0 +1,2 @@
+{%- comment -%} Yazar adı bağlantısı: {% include yazar-adi.html yazar=page.yazar %} {%- endcomment -%}
+{%- assign _ya = site.yazarlar | where: "slug", include.yazar | first -%}{%- if _ya -%}<a href="{{ _ya.url | relative_url }}">{{ _ya.title }}</a>{%- endif -%}

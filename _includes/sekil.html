@@ -1,0 +1,5 @@
+{%- comment -%}
+Görsel. gorsel verilmezse yer tutucu çizilir (yayından önce gerçek görselle değiştirin).
+{% include sekil.html gorsel="/assets/img/blog/x.jpg" alt="…" aciklama="Şekil 1. …" %}
+{%- endcomment -%}
+<figure{% if include.genis %} style="max-width:1000px"{% endif %}><div class="fig__frame">{% if include.gorsel %}<img src="{{ include.gorsel | relative_url }}" alt="{{ include.alt }}" loading="lazy"{% if include.genislik %} width="{{ include.genislik }}" height="{{ include.yukseklik }}"{% endif %}>{% else %}<div class="ph ph--light ph--wide"><strong>Görsel</strong>{{ include.alt }}</div>{% endif %}</div>{% if include.aciklama %}<figcaption>{{ include.aciklama }}</figcaption>{% endif %}</figure>

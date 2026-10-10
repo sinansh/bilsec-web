@@ -1,0 +1,25 @@
+---
+title: Blog
+description: Siber hijyen, BT yönetimi ve denetim hazırlığı üzerine uygulama notları. BT uzmanı olmayan firma sahipleri ve idari sorumlular için.
+nav: blog
+cta: blog
+kirinti: []
+---
+<header class="wrap phead" style="padding-bottom:28px"><div class="phead__in">
+<p class="kicker">Blog</p>
+<h1 class="h1 h1--md">Uygulama notları</h1>
+<p class="lead">BT uzmanı olmayan firma sahipleri ve idari sorumlular için: siber hijyen, BT yönetimi ve denetim hazırlığı üzerine kısa ve uygulanabilir yazılar.</p>
+</div></header>
+<div class="wrap" style="padding-bottom:72px">
+{% include blog-suzgec.html %}
+{% if paginator.posts.size > 0 %}
+{% if paginator.page == 1 %}{% assign _one = paginator.posts | first %}{% include one-cikan.html yazi=_one %}{% endif %}
+<section aria-labelledby="h-tum" style="padding-top:40px">
+<h2 class="sr" id="h-tum">Tüm yazılar</h2>
+<div class="grid grid--3" style="gap:40px 32px">{% for _y in paginator.posts %}{% unless paginator.page == 1 and forloop.first %}{% include yazi-karti.html yazi=_y %}{% endunless %}{% endfor %}</div>
+{% include sayfalama.html %}
+</section>
+{% else %}
+<p class="muted" style="padding-top:40px">Henüz yazı yayımlanmadı.</p>
+{% endif %}
+</div>

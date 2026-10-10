@@ -1,0 +1,9 @@
+{%- if paginator.total_pages > 1 -%}
+<nav aria-label="Sayfalama" style="margin-top:56px;display:flex;justify-content:center"><ul class="pager">
+<li>{% if paginator.previous_page %}<a href="{{ paginator.previous_page_path | relative_url }}" rel="prev">← Önceki</a>{% else %}<span aria-disabled="true">← Önceki</span>{% endif %}</li>
+{%- for _n in (1..paginator.total_pages) -%}{%- if _n == 1 -%}{%- assign _u = '/blog/' -%}{%- else -%}{%- assign _u = site.paginate_path | replace: ':num', _n -%}{%- endif -%}
+<li><a href="{{ _u | relative_url }}"{% if _n == paginator.page %} aria-current="page"{% endif %}>{{ _n }}</a></li>
+{%- endfor -%}
+<li>{% if paginator.next_page %}<a href="{{ paginator.next_page_path | relative_url }}" rel="next">Sonraki →</a>{% else %}<span aria-disabled="true">Sonraki →</span>{% endif %}</li>
+</ul></nav>
+{%- endif -%}
