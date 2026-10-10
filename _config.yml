@@ -40,7 +40,7 @@ iletisim:
   # Acil hat boş bırakılırsa "güvenlik olayı" kartı, menüdeki uyarı ve 7/24 ifadeleri gösterilmez.
   acil_telefon: ""                    # güvenlik olayı hattı · 7/24
   acil_telefon_link: ""
-  takvim_url: https://calendar.app.google/eEhHxXMVEZXnhcKU8
+  takvim_url: https://calendar.app.google/SdeuCusNDWfnSNhS7
   yanit_suresi: bir iş günü
   adres:
     satir1: "Yenimahalle"
