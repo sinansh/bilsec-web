@@ -3,7 +3,7 @@ title: "Yedeğiniz gerçekten çalışıyor mu? Geri dönüş testi nasıl yapı
 description: "BT bilgisi olmadan yapılabilecek 45 dakikalık geri dönüş testi ve denetçiye sunulacak rapor, adım adım."
 ozet: "Yedek almak işin yarısı. BT bilgisi olmadan da yapılabilecek 45 dakikalık bir geri dönüş testini ve denetçiye sunulacak raporu adım adım anlatıyoruz."
 date: 2026-10-10
-yazar: sinan-sahin
+yazar: fatma-bayrambas-sahin
 kategori: Uygulama
 tags: [yedekleme, fidye-yazilimi, trtest]
 okuma: 8
@@ -52,7 +52,7 @@ Test için şunlara ihtiyacınız var:
 
 {% include adimlar.html veri=page.test %}
 
-{% include alinti.html metin="Bir dosyanın yedeğini almak kolaydır. Zor olan, ihtiyaç anında o dosyaya ulaşabileceğinizi önceden bilmektir." kaynak="Sinan Şahin, BilSec" %}
+{% include alinti.html metin="Bir dosyanın yedeğini almak kolaydır. Zor olan, ihtiyaç anında o dosyaya ulaşabileceğinizi önceden bilmektir." kaynak="BilSec" %}
 
 ## Raporu nasıl yazmalı {#rapor}
 

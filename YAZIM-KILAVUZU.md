@@ -15,7 +15,7 @@ Yeni içerik açarken en kolay yol en yakın örneği kopyalamaktır.
 - Tarihler `2026-10-09` biçiminde yazılır. Sitede `09.10.2026` olarak görünür.
 - Bölüm başlıkları `##`, alt başlıklar `###` ile yazılır. İçindekiler `##` başlıklarından üretilir. Kısa ve kalıcı bir adres için başlığın sonuna `{#kisa-ad}` ekleyin.
 - İki nokta (`:`) içeren front matter değerlerini tırnak içine alın.
-- `yazar:` alanına `_yazarlar` klasöründeki dosyanın adı yazılır: `sinan-sahin`.
+- `yazar:` alanına `_yazarlar` klasöründeki dosyanın adı yazılır: `fatma-bayrambas-sahin`.
 
 ## Blog yazısı (`_posts/`)
 
@@ -26,7 +26,7 @@ description: "Arama motoru ve kart açıklaması, 150 karakteri geçmesin"
 ozet: "Başlığın altındaki giriş cümlesi"
 date: 2026-10-15
 guncelleme: 2026-10-20        # isteğe bağlı
-yazar: sinan-sahin
+yazar: fatma-bayrambas-sahin
 kategori: Uygulama            # _data/blog_kategorileri.yml'deki adlardan biri
 tags: [yedekleme, trtest]     # Türkçe karakter kullanmayın
 kapak: /assets/img/blog/ad.jpg   # isteğe bağlı, 1600 × 800
@@ -98,7 +98,7 @@ test:
 
 **Kaynaklar.** Front matter'a `kaynaklar: [{ ad, url, aciklama }]` yazılır, metinde `{% include kaynaklar.html %}` ile çağrılır.
 
-**Alıntı.** `{% include alinti.html metin="…" kaynak="Sinan Şahin, BilSec" %}`
+**Alıntı.** `{% include alinti.html metin="…" kaynak="Fatma Bayrambaş Şahin, BilSec" %}`
 
 **Görsel.** `{% include sekil.html gorsel="/assets/img/…" alt="…" aciklama="Şekil 1. …" %}`
 

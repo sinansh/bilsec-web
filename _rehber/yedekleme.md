@@ -5,7 +5,7 @@ baslik_etiketi: "Yedekleme · Siber Hijyen-KOBİ kontrol alanı 07"
 description: "Siber Hijyen-KOBİ'nin 7. alanı Yedekleme: 7.1–7.3 kriterleri, Orta seviye, politika ve uygulama kanıtları, geri dönüş testi, sık yapılan hatalar."
 kart_metni: Alanın üç maddesi ve sunulacak kanıtlar.
 ozet: Fidye yazılımı, donanım arızası ya da yanlışlıkla silme sonrasında işinize kaldığınız yerden devam edebilmeniz için istenen üç kontrol.
-yazar: sinan-sahin
+yazar: fatma-bayrambas-sahin
 guncelleme: 2026-10-10
 okuma: 10
 kisa_yanit: "Yedekleme alanında üç madde var ve üçü de Orta seviyededir: kritik verili sistemler harici bir altyapıya yedeklenmeli, yedekler orada güvenli tutulmalı ve yedekten geri dönme (restore) testleri düzenli yapılmalıdır. Başlangıç seviyesinde bu alan aranmaz; Orta ve İleri seviyede üç madde de zorunludur."
