@@ -7,7 +7,7 @@ cta: yasal
 kirinti: []
 surum: "1.0"
 yururluk: 2026-10-10
-ozet_kutusu: "Bu sitede yalnızca iletişim formuna yazdığınız bilgileri, talebinize yanıt vermek için işliyoruz. Çerez ve izleme aracı kullanmıyoruz. Verileriniz Türkiye'de tutulur ve satış amacıyla kullanılmaz."
+ozet_kutusu: "Bu sitede yalnızca iletişim formuna yazdığınız bilgileri, talebinize yanıt vermek için işliyoruz. Verileriniz Türkiye'de tutulur ve satış amacıyla kullanılmaz."
 gecmis:
   - { surum: "1.0", tarih: 2026-10-10, degisiklik: İlk yayın. }
 ---
@@ -44,4 +44,4 @@ KVKK'nın 11. maddesi uyarınca verilerinize ilişkin bilgi talep etme, düzeltm
 
 ## 7. Gizlilik ve çerezler {#gizlilik}
 
-Bu sitede çerez, analiz aracı ya da üçüncü taraf izleme kodu kullanılmaz. Tema tercihiniz (açık/koyu) yalnızca tarayıcınızda saklanır ve bize iletilmez.
+Site trafiğini anlamak için Google Analytics kullanıyoruz. Bu araç, ziyaret ettiğiniz sayfalar ve cihaz bilgisi gibi verileri çerezler aracılığıyla toplar. Tema tercihiniz (açık/koyu) yalnızca tarayıcınızda saklanır ve bize iletilmez.

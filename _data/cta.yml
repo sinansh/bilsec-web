@@ -34,4 +34,3 @@ yasal:
   baslik: Kişisel verilerinizle ilgili bir talebiniz mi var?
   metin: Başvurunuzu [kvkk_eposta] adresine iletebilirsiniz. Yanıt süresi en geç 30 gündür.
   birincil: { ad: "[kvkk_eposta] adresine yazın", url: "mailto:[kvkk_eposta]" }
-  not: Bu sitede çerez ve izleme aracı kullanılmaz.
