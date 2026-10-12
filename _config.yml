@@ -55,13 +55,13 @@ iletisim:
 sosyal:
   - ad: LinkedIn
     ikon: linkedin
-    url: https://www.linkedin.com/company/bilsec
+    url: https://www.linkedin.com/company/bilsec-siber-guvenlik
   - ad: X
     ikon: xbrand
     url: https://x.com/bilsectr
   - ad: YouTube
     ikon: youtube
-    url: https://www.youtube.com/@bilsec
+    url: https://www.youtube.com/@BilSecSiberGuvenlik
 
 ust_cta:
   ad: Görüşme planlayın

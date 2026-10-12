@@ -822,3 +822,33 @@ div.highlighter-rouge code{background:none;padding:0;border:0;color:inherit;font
 .ara-sonuc{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
 .ara-sonuc>div{flex:1 1 380px;display:flex;flex-direction:column;gap:6px}
 .ara-sonuc h3{font-size:18px}
+
+/* Şemalar · _includes/gorsel/ */
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:40px}.hero .sema{max-width:460px}}
+.sema{display:block;width:100%;height:auto}
+.sema text{font-family:var(--font-body)}
+.sema__box{fill:var(--surface-card);stroke:var(--border-strong);stroke-width:1}
+.sema__dark{fill:var(--bs-night)}
+[data-theme="dark"] .sema__dark{fill:#081521;stroke:var(--bs-snow-a22)}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .sema__dark{fill:#081521;stroke:var(--bs-snow-a22)}}
+.sema__row rect{fill:var(--bs-snow-a10);stroke:var(--bs-snow-a16)}
+.sema__ln{fill:none;stroke:var(--text-strong);stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter}
+.sema__ln--d{stroke-dasharray:4 5;stroke-linecap:butt}
+.sema__amb{fill:var(--bs-amber)}
+.sema__mk{fill:var(--bs-snow)}
+.sema__k{font:500 11px var(--font-mono)!important;letter-spacing:var(--tracking-kicker);text-transform:uppercase;fill:var(--text-label)}
+.sema__k--amb{fill:var(--bs-amber)}
+.sema__s{font:400 12px var(--font-mono)!important;fill:var(--web-muted)}
+.sema__t{font:600 15px var(--font-body);fill:var(--text-strong)}
+.sema__t--inv{fill:var(--bs-snow)}
+.sema__n{font:500 12px var(--font-mono)!important;fill:var(--bs-amber)}
+.sema__acc{fill:var(--bs-amber)}
+.sema__k--on,.sema__t--on{fill:var(--bs-night)}
+.sema__ln--on{stroke:var(--bs-night)}
+.sema__ln--x{stroke:var(--status-missing)}
+.sema__ln--amb{stroke:var(--bs-amber)}
+.sema__k--amb2{fill:var(--accent-text)}
+.sema__plate{fill:var(--surface-card);stroke:var(--text-strong);stroke-width:1.6;stroke-linejoin:miter}
+.sema__plate--top{fill:var(--bs-night)}
+.sema__side{fill:var(--border-strong);stroke:var(--text-strong);stroke-width:1.6;stroke-linejoin:miter}
