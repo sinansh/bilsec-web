@@ -21,7 +21,7 @@ gecmis:
 | Veri kategorisi | Örnek                              | Kaynak                   |
 |-----------------|------------------------------------|--------------------------|
 | Kimlik          | Ad, soyad                          | İletişim formu           |
-| İletişim        | E-posta, telefon                   | İletişim formu, e-posta  |
+| İletişim        | E-posta, telefon                   | İletişim formu, e-posta, telefon, WhatsApp |
 | Mesleki         | Firma adı, çalışan sayısı aralığı  | İletişim formu           |
 | Talep içeriği   | Mesaj metni                        | İletişim formu           |
 

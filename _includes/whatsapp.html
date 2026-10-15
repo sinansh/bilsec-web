@@ -1,0 +1,4 @@
+{%- comment -%} Her sayfada sağ altta sabit WhatsApp butonu. Numara ve hazır mesaj: _config.yml → iletisim.whatsapp / whatsapp_mesaj. Numara boşsa hiç basılmaz. {%- endcomment -%}
+{%- if site.iletisim.whatsapp and site.iletisim.whatsapp != "" -%}
+<a class="wa" href="https://wa.me/{{ site.iletisim.whatsapp }}?text={{ site.iletisim.whatsapp_mesaj | url_encode | replace: "+", "%20" }}" target="_blank" rel="external noopener" aria-label="WhatsApp'tan yazın ({{ site.iletisim.telefon }})" onclick="window.gtag&&gtag('event','whatsapp_tikla',{sayfa:location.pathname})">{% include ikon.html ad="whatsapp" %}<span class="wa__t">WhatsApp'tan yazın</span></a>
+{%- endif -%}

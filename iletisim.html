@@ -1,6 +1,6 @@
 ---
 title: "Yardıma mı ihtiyacınız var? Buradayız"
-description: "BilSec ile iletişim: denetimden kaldıysanız ya da denetime hazırlanıyorsanız. Form, takvim ve e-posta."
+description: "BilSec ile iletişim: denetimden kaldıysanız ya da denetime hazırlanıyorsanız. WhatsApp, telefon, form, takvim ve e-posta."
 permalink: "/iletisim/"
 nav: "iletisim"
 kirinti: []
@@ -30,13 +30,14 @@ kirinti_son: "İletişim"
 
 <aside class="stack" style="gap:28px" aria-label="Form dışı seçenekler">
 <div class="card" id="gorusme"><p class="kicker">Takvimden görüşme</p><h3>30 dakikalık görüşme planlayın</h3><p>Uygun bir saati kendiniz seçin. Görüşme çevrim içi yapılır; kamera açmak zorunlu değil.</p><a class="btn btn--dark" href="{{ site.iletisim.takvim_url }}" target="_blank" rel="external noopener">{% include ikon.html ad="calendar" %}Takvimi açın</a></div>
+{% if site.iletisim.whatsapp and site.iletisim.whatsapp != "" %}<div class="card"><p class="kicker">WhatsApp</p><h3>Bir mesajla sorun</h3><p>Kısa bir sorunuz mu var? Form doldurmadan WhatsApp'tan yazın; {{ site.iletisim.mesai }} yanıtlıyoruz.</p><a class="btn btn--dark" href="https://wa.me/{{ site.iletisim.whatsapp }}?text={{ site.iletisim.whatsapp_mesaj | url_encode | replace: "+", "%20" }}" target="_blank" rel="external noopener">{% include ikon.html ad="whatsapp" %}WhatsApp'tan yazın</a></div>{% endif %}
 <dl class="facts" style="grid-template-columns:1fr">
 <div><dt>E-posta</dt><dd><a href="mailto:{{ site.iletisim.eposta }}">{{ site.iletisim.eposta }}</a></dd></div>
 {% if site.iletisim.telefon and site.iletisim.telefon != "" %}<div><dt>Telefon · {{ site.iletisim.mesai }}</dt><dd><a href="tel:{{ site.iletisim.telefon_link }}">{{ site.iletisim.telefon }}</a></dd></div>{% endif %}
 {% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}<div><dt>Güvenlik olayı · 7/24</dt><dd><a href="tel:{{ site.iletisim.acil_telefon_link }}">{{ site.iletisim.acil_telefon }}</a></dd></div>{% endif %}
 <div><dt>Adres</dt><dd style="font-weight:400;line-height:1.6">{{ site.iletisim.adres.satir1 }}<br>{{ site.iletisim.adres.satir2 }}</dd></div>
 </dl>
-<div class="stack" style="gap:12px"><p class="kicker">Yanıt süresi</p><p style="color:var(--text-body)">Form ve e-postalara {{ site.iletisim.yanit_suresi }} içinde{% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}, güvenlik olayı çağrılarına aynı saat içinde{% endif %} dönüyoruz.</p></div>
+<div class="stack" style="gap:12px"><p class="kicker">Yanıt süresi</p><p style="color:var(--text-body)">{% if site.iletisim.whatsapp and site.iletisim.whatsapp != "" %}WhatsApp mesajlarına {{ site.iletisim.mesai }} aynı gün, form{% else %}Form{% endif %} ve e-postalara {{ site.iletisim.yanit_suresi }} içinde{% if site.iletisim.acil_telefon and site.iletisim.acil_telefon != "" %}, güvenlik olayı çağrılarına aynı saat içinde{% endif %} dönüyoruz.</p></div>
 <div class="stack" style="gap:12px"><p class="kicker">Görüşme nasıl geçer</p><ul class="lines"><li style="font-size:15px">İlk 10 dakikada sizi dinleriz: firma, çalışanlar, beklenen denetim.</li><li style="font-size:15px">Sonra hangi işlerin eksik olduğunu birlikte işaretleriz.</li><li style="font-size:15px">Görüşme kaydedilmez; ağınız ya da sistemleriniz hakkında gizli bilgi istemeyiz.</li><li style="font-size:15px">Görüşmeden sonra satış e-postası göndermeyiz; yalnız yazılı özet.</li></ul></div>
 </aside>
 </div>

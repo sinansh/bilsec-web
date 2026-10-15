@@ -33,8 +33,11 @@ iletisim:
   eposta: iletisim@bilsec.tr
   kvkk_eposta: kvkk@bilsec.tr
   # Telefon boş bırakılırsa sitede hiçbir yerde gösterilmez.
-  telefon: ""                         # görünen biçim, örn. "+90 312 000 00 00"
-  telefon_link: ""                    # tel: bağlantısı (boşluksuz), örn. "+903120000000"
+  telefon: "0510 221 50 00"           # görünen biçim
+  telefon_link: "+905102215000"       # tel: bağlantısı (boşluksuz, +90 ile)
+  # WhatsApp boş bırakılırsa sağ alttaki sabit buton ve iletişim sayfasındaki WhatsApp kartı gösterilmez.
+  whatsapp: "905102215000"            # wa.me numarası: ülke koduyla, + ve boşluk olmadan
+  whatsapp_mesaj: "Merhaba, BilSec hakkında bilgi almak istiyorum."   # sohbet açılınca hazır gelen metin
   mesai: hafta içi 09:00–18:00
   # Acil hat boş bırakılırsa "güvenlik olayı" kartı, menüdeki uyarı ve 7/24 ifadeleri gösterilmez.
   acil_telefon: ""                    # güvenlik olayı hattı · 7/24
